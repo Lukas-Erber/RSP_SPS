@@ -1,0 +1,11 @@
+# Definition od Done
+## User story
+ * Feature OK by Product Owner
+ * Feature OK by Scrum Master
+ * Project build with no errors
+ * Code review
+
+## Sprint
+ * Product backlog updated
+ * Project deployed on test environment (school server)
+ * Planned new sprint

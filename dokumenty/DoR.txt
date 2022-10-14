@@ -1,0 +1,7 @@
+# Definition of Ready
+## User Story
+ * Description in format As/I/So
+ * Assigned bussiness value
+ * Assigned effort
+ * Assigned time requirment
+ * Assigned team member
