@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -15,6 +19,11 @@
           <img src="./img/sps-logo.png" alt="samurailogo" />
           <div class="nav-menu">
             <ul>
+              <?php 
+                if (isset($_SESSION["uzivatel_id"])) {
+                  echo "<a href=\"#\"><li>Profil</li></a>";
+                }
+              ?>
               <a href="#"><li>Články</li></a>
               <a href="#"><li>Recenze</li></a>
               <a href="#"><li>Položka</li></a>
@@ -22,10 +31,15 @@
             </ul>
           </div>
           <div class="icons">
-            <a href="index.html"> <i class="fa-solid fa-house"></i></a>
-            <a href="login.php">
-              <i class="fa-solid fa-book-open-reader"></i
-            ></a>
+            <a href="index.php"> <i class="fa-solid fa-house"></i></a>
+
+            <?php 
+              if (isset($_SESSION["uzivatel_id"])) {
+                echo "<a href=\"includes/logout.inc.php\"><i class=\"fa-solid fa-book-open-reader\"></i></a>";
+              } else {
+                echo "<a href=\"login.php\"><i class=\"fa-solid fa-book-open-reader\"></i></a>";
+              }
+            ?>
           </div>
         </div>
       </div>

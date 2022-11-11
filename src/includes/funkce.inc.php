@@ -123,7 +123,7 @@ function loginUser($conn, $login, $heslo) {
         $_SESSION["jmeno"]          = $loginExists["jmeno"];
         $_SESSION["prijmeni"]       = $loginExists["prijmeni"];
 
-        header("location: ../index.html");
+        header("location: ../index.php");
         exit();
     }
 }
