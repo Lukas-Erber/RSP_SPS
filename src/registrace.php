@@ -46,7 +46,7 @@
                 	}
             	?>
 
-				<button type="submit" name="submit" class="">Registrovat</button>
+				<button type="submit" name="submit">Registrovat</button>
 				<a href="login.php">Zpět na přihlášení</a>
 			</form>
 		</div>

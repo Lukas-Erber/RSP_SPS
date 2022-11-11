@@ -89,3 +89,41 @@ function createUser($conn, $login, $heslo, $jmeno, $prijmeni, $email) {
     header("location: ../registrace.php?error=none");
     exit();
 }
+
+function emptyInputLogin($login, $heslo) {
+    $result;
+
+    if (empty($login) || empty($heslo)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+
+    return $result;
+}
+
+function loginUser($conn, $login, $heslo) {
+    $loginExists = loginExists($conn, $login);
+
+    if ($loginExists == false) {
+        header("location: ../login.php?error=wronglogin");
+        exit();
+    }
+
+    $hesloDB = $loginExists["heslo"];
+    $isCorrectPassword = password_verify($heslo, $hesloDB);
+
+    if ($isCorrectPassword == false) {
+        header("location: ../login.php?error=wronglogin");
+        exit();
+    } else {
+        session_start();
+        $_SESSION["uzivatel_id"]    = $loginExists["id"];
+        $_SESSION["login"]          = $loginExists["login"];
+        $_SESSION["jmeno"]          = $loginExists["jmeno"];
+        $_SESSION["prijmeni"]       = $loginExists["prijmeni"];
+
+        header("location: ../index.html");
+        exit();
+    }
+}

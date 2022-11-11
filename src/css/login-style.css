@@ -145,7 +145,13 @@ input:last-of-type {
     width: 250px;
 }
 
-
 .overlay-right {
 	right: 0;
+}
+
+.text-warning {
+	color: #df3011;
+	font-size: 12px;
+	margin-top: 0px;
+	margin-bottom: 5px;
 }

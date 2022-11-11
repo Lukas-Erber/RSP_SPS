@@ -13,15 +13,23 @@
 <body>
     <div class="container" id="container">
 		<div class="form-container log-in-container">
-			<form action="#">
+			<form action="includes/login.inc.php" method="POST">
                 <h1>Přihlašte se</h1>
                 <div class="reg-info-text">nebo se <a href="registrace.php">zaregistrujte</a></div>
 
-				<input type="text" placeholder="Login" />
-				<input type="password" placeholder="Heslo" />
+				<input type="text" name="login" placeholder="Login" />
+				<input type="password" name="heslo" placeholder="Heslo" />
 				<a href="#">Nepamatujete si heslo?</a>
 
-				<button>Přihlásit se</button>
+				<?php
+               		 if (isset($_GET["error"])) {
+	                    if ($_GET["error"] == "wronglogin") {
+	                        echo "<p class=\"text-warning\">Neplatný login</p>";
+	                    }
+                	}
+            	?>
+
+				<button type="submit" name="submit">Přihlásit se</button>
 			</form>
 		</div>
 		<div class="overlay-container">
