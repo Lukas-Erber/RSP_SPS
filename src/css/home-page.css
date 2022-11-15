@@ -22,7 +22,7 @@ h1 {
   text-transform: uppercase;
 }
 
-h4 {
+section h4 {
   color: #df3011;
   text-transform: uppercase;
 }
@@ -105,7 +105,7 @@ section .container {
   padding: 15px 15px;
   margin-bottom: 10px;
   width: 90vw;
-  height: 100vh;
+
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   text-align: center;
@@ -119,25 +119,84 @@ section .container {
   gap: 15px;
 }
 
-table {
+.head-article {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.modal-content h4 {
+  color: black;
+}
+
+.btn-add-article {
+  background: none;
+  border: none;
+  padding: auto;
+  font-size: 12px;
+  color: #df3011;
+}
+
+.btn-add-article:hover {
+  background-color: #df3011;
+  border-radius: 10px;
+  color: white;
+  padding: 2px 5px;
+}
+
+.form-add-article {
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+.form-add-article input {
+  background-color: #eee;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.form-add-article button {
+  border-radius: 20px;
+  border: 1px solid #df3011;
+  background-color: #df3011;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+}
+
+section table {
   display: flex;
   justify-content: center;
 }
 
-tr {
+section tr {
   display: flex;
   gap: 15px;
   margin-bottom: 15px;
 }
 
-td {
+section td {
   border: 1px solid black;
   border-radius: 10px;
   padding: 5px 30px;
   transition: 0.3s ease-in-out;
 }
 
-td:hover {
+section td:hover {
   border: 1px solid #df3011;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }

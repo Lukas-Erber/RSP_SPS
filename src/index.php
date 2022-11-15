@@ -10,6 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/home-page.css" />
     <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Hlavní stránka</title>
   </head>
   <body>
@@ -57,7 +60,38 @@
           </p>
         </div>
         <div class="article-table">
+          <div class="head-article">
           <h2>Články</h2>
+          <button type="button" class="btn-add-article" data-toggle="modal" data-target="#myModal">Přidat článek</button>
+          </div>
+
+
+          <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Přidání nového článku</h4>
+        </div>
+        <div class="modal-body">    
+            <form action="" method="post" class="form-add-article">
+            <input type="text" name="" id="" placeholder="Název článku">
+            <input type="text" name="" id="" placeholder="Téma článku">
+            <input type="text" name="" id="" placeholder="Autor čláknku">
+            <input type="file" name="" id="">
+            <button type="submit" name="submit">Uložit článek</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+        </div>
+    </div>
+    </div>
+    </div>
+
 
           <table>
             <tr>
