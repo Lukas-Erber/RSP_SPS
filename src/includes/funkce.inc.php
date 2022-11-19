@@ -123,7 +123,30 @@ function loginUser($conn, $login, $heslo) {
         $_SESSION["jmeno"]          = $loginExists["jmeno"];
         $_SESSION["prijmeni"]       = $loginExists["prijmeni"];
 
+        /*$userRole = findUserRole($conn, $loginExists["id_role"]);
+        $_SESSION["role_kod"]       = $userRole["kod"];
+        $_SESSION["role_nazev"]     = $loginExists["nazev"];
+*/
         header("location: ../index.php");
         exit();
     }
+}
+
+function findUserRole($conn, $userRoleId) {
+    $sql = "SELECT * FROM role WHERE id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    mysqli_stmt_bind_param($stmt, "s", $userRoleId);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
 }

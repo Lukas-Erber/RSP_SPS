@@ -1,23 +1,18 @@
 <?php
-//print_r($_POST) ;
+session_start();
+
+require "includes/dbconn.inc.php";
+
 //vytvoření proměnných
-$jmeno=filter_var(trim($_POST['jmeno']), FILTER_SANITIZE_STRING);
-$autor=filter_var(trim($_POST['autor']), FILTER_SANITIZE_STRING);
-$tema = filter_var(trim($_POST['tema']), FILTER_SANITIZE_STRING);
-//$datum = date();
-//$stav = "";
-$soubor = filter_var(trim($_FILES['soubor']['name']), FILTER_SANITIZE_STRING);
-
-echo $soubor;
-echo $jmeno;
-
-
-
+$nazev      = filter_var(trim($_POST['nazev']),             FILTER_SANITIZE_STRING);
+$autori     = filter_var(trim($_POST['autori']),            FILTER_SANITIZE_STRING);
+$tema       = filter_var(trim($_POST['tema']),              FILTER_SANITIZE_STRING);
+$soubor     = filter_var(trim($_FILES['soubor']['name']),   FILTER_SANITIZE_STRING);
 
 $error = "";
-if(trim($jmeno)=='')
+if(trim($nazev)=='')
     $error = "zadejte jméno článku" . '<br>';
-elseif (trim($autor) == ''){
+elseif (trim($autori) == ''){
     $error = "zadejte jméno autora" . '<br>';
 }
 
@@ -29,43 +24,37 @@ if ($error !=""){
     echo $error;
     exit;
 }
-require "includes/dbconn.inc.php";
-/*
-echo $_POST['jmeno'].'<br>';
-echo $_POST['autor'].'<br>';
-echo $_POST['tema'].'<br>';
-echo $_FILES['soubor']['size'] . '<br>';
 
-echo $_FILES['soubor']['name'] . '<br>';
-echo $_FILES['soubor']['tmp_name'] . '<br>';
-*/
 
 //zkopírování dat do souboru na serveru
 if (move_uploaded_file($_FILES['soubor']['tmp_name'], 'pdf/'.$_FILES['soubor']['name'])) {
     echo "soubor byl zkopírován na server". '<br>';
-    // code...
 }else {
-    // code..
     echo "soubor nebyl zkopírován". '<br>';
 }
 
+$sql = "INSERT INTO clanek (id_stav, id_autor, tema, datum, nazev, soubor, spoluautori) values(?, ?, ?, ?, ?, ?, ?)" ;
+$stmt = mysqli_stmt_init($conn);
 
+$today = date("Y-m-d");
+$stavId = 0;
+$userId = $_SESSION["uzivatel_id"];
 
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+    echo "chyba";
+    exit();
+}
 
-echo $soubor;
-//zapis do databáze
-//require "includes/dbconn.inc.php";
+mysqli_stmt_bind_param($stmt, "iisssss", $stavId, $userId, $tema, $today, $nazev, $soubor, $autori);
 
-$sql = "INSERT INTO `clanek` (`nazev`,`spoluautori`,`soubor`, `tema`) values('$jmeno','$autor','$soubor','$tema')" ;
-
-if (mysqli_query($conn, $sql)) {
+/*if (mysqli_query($conn, $sql)) {*/
+if (mysqli_stmt_execute($stmt)) {
     echo "Hurááá";
     echo '<script>alert("záznam byl úspěšně přidán")</script>';
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
-mysqli_close($conn);
 
-header( "refresh:10; url=index.php");
+mysqli_stmt_close($stmt);
 
 ?>

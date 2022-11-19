@@ -78,9 +78,9 @@
         </div>
         <div class="modal-body">    
             <form action="upload.php" method="post" class="form-add-article" enctype="multipart/form-data">
-            <input type="text" name="jmeno" id="jmeno_souboru" placeholder="Název článku">
+            <input type="text" name="nazev" id="jmeno_souboru" placeholder="Název článku">
             <input type="text" name="tema" id="" placeholder="Téma článku">
-            <input type="text" name="autor" id="" placeholder="Autor čláknku">
+            <input type="text" name="autori" id="" placeholder="Autoři">
             <input type="file" name="soubor" id="">
             <button type="submit" name="submit">Uložit článek</button>
           </form>
