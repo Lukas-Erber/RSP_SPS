@@ -77,11 +77,11 @@
           <h4 class="modal-title">Přidání nového článku</h4>
         </div>
         <div class="modal-body">    
-            <form action="" method="post" class="form-add-article">
-            <input type="text" name="" id="" placeholder="Název článku">
-            <input type="text" name="" id="" placeholder="Téma článku">
-            <input type="text" name="" id="" placeholder="Autor čláknku">
-            <input type="file" name="" id="">
+            <form action="upload.php" method="post" class="form-add-article" enctype="multipart/form-data">
+            <input type="text" name="jmeno" id="jmeno_souboru" placeholder="Název článku">
+            <input type="text" name="tema" id="" placeholder="Téma článku">
+            <input type="text" name="autor" id="" placeholder="Autor čláknku">
+            <input type="file" name="soubor" id="">
             <button type="submit" name="submit">Uložit článek</button>
           </form>
         </div>

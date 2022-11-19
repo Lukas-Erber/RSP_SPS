@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<title>Skoda yeti bazar - Bazos.cz</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="Bezplatná inzerce na internetu - vyhledávání inzerátů na Bazoš.cz.">
+<meta name="google-play-app" content="app-id=cz.ackee.bazos">
+<meta name="apple-itunes-app" content="app-id=1195042966">
+<meta property="fb:admins" content="1055875657">
+<meta property="og:image" content="https://www.bazos.cz/obrazky/bazoslogoface.png">
+<meta name="ROBOTS" content="NOINDEX">
+<link rel="stylesheet" href="https://www.bazos.cz/bazos60s.css" type="text/css"><link rel="preload" as="image" href="https://www.bazos.cz/obrazky/bazos.svg">
+<link rel="shortcut icon" HREF="https://www.bazos.cz/favicon.ico">
+<link rel="icon" sizes="192x192" href="https://www.bazos.cz/obrazky/icon-192x192.png">
+<link rel="apple-touch-icon" href="https://www.bazos.cz/apple-touch-icon.png">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.bazos.cz/search.xml" title="Bazoš.cz">
+<link rel="alternate" type="application/rss+xml" title="Bazos.cz - RSS" href="https://www.bazos.cz/rss.php?humkreis=25&hledat=skoda+yeti&cenaod=75000&cenado=150000">
+<script async="async" src="https://www.google.com/adsense/search/ads.js"></script>
+<script type="text/javascript" charset="utf-8">
+(function(g,o){g[o]=g[o]||function(){(g[o]['q']=g[o]['q']||[]).push(
+  arguments)},g[o]['t']=1*new Date})(window,'_googCsa');
+</script><script>
+var xhr = new XMLHttpRequest();
+var naseptavac_value = '';
+function naseptavac(value) {
+  if (value=='')  {
+  	naseptavac_value = '';
+  	document.getElementById('vysledek').innerHTML='';
+  	}
+else {
+	if (naseptavac_value == value) {
+		return false;
+	}
+	naseptavac_value = value;
+	setTimeout(function () {
+		if (naseptavac_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavac_value == value){
+				document.getElementById('vysledek').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open('GET', '/suggest.php?rubnas=HP&qnas='+encodeURIComponent(naseptavac_value));
+		xhr.send();
+	}, 250);
+}
+}
+
+var naseptavacpsc_value = '';
+function naseptavacpsc(value) {
+  if (value=='')  {
+  	naseptavacpsc_value = '';
+  	document.getElementById('vysledekpsc').innerHTML='<table cellpadding=\"3\" cellspacing=\"0\" class=\"tablenaspsc\"><tr><td class=\"act\" onclick=\"getLocation();\"><b>Inzeráty v okolí</b></td></tr></table>';
+  	}
+else {
+	if (naseptavacpsc_value == value) {
+		return false;
+	}
+	naseptavacpsc_value = value;
+	setTimeout(function () {
+		if (naseptavacpsc_value != value) {
+			return false;
+		}
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4 && naseptavacpsc_value == value){
+				document.getElementById('vysledekpsc').innerHTML = this.responseText;
+			}
+ 		 };
+		xhr.open('GET', '/suggestpsc.php?qnaspsc='+encodeURIComponent(naseptavacpsc_value));
+		xhr.send();
+	}, 250);
+}
+}
+
+function getLocation() {
+if (navigator.geolocation) {navigator.geolocation.getCurrentPosition(showPosition);}
+else {document.getElementById('hlokalita').value = '';}
+}
+function showPosition(position) {
+		xhr.onreadystatechange = function() {
+ 		 if (this.readyState == 4){
+				document.getElementById('hlokalita').value = this.responseText;
+				document.forms['formt'].submit();
+			}
+ 		 };
+		xhr.open('GET', '/zip.php?latitude='+encodeURIComponent(position.coords.latitude)+'&longitude='+encodeURIComponent(position.coords.longitude));
+		xhr.send();
+}
+
+var agent_value = '';
+function agentclick() {
+  if (document.getElementById('agentmail').value=='')  {
+  	document.getElementById("agentmail").focus();
+    return false;
+  	}
+else {
+agent_value = document.getElementById('agentmail').value;
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4){
+				document.getElementById('overlay').innerHTML = this.responseText;
+			}
+  };
+xhr.open("GET", '/agent.php?hledat=skoda yeti&rubrikav=&hlokalita=&humkreis=25&cenaod=75000&cenado=150000&cat=&typ=&agentmail='+encodeURIComponent(agent_value));
+xhr.send();
+}
+}
+
+function odeslatrequest(value) {
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4){
+				document.getElementById('overlay').innerHTML = this.responseText;
+			}
+  };
+xhr.open("GET", value);
+xhr.send();
+}
+function overlay() {
+	el = document.getElementById("overlay");
+	el.style.display = (el.style.display == "inline") ? "none" : "inline";
+}
+</script>
+<script src="https://www.bazos.cz/eucookiecz.js" async></script>
+</head>
+
+<body>
+
+<div class="sirka">
+
+
+<div class="listalogor">
+<div class="listalogol"><a href="https://www.bazos.cz/" title="Bazos.cz - Inzerce, bazar"><img src="https://www.bazos.cz/obrazky/bazos.svg" width="199" height="34" alt="Bazos.cz - Inzerce, inzeráty"></a></div>
+<div class="listalogom"> <img src="/ukflag.jpg" height="25px" width="38px"> <b>... inzerce pro každého</b></div>
+<div class="listalogop"><a href="https://www.bazos.cz/oblibene.php"><b>Oblíbené inzeráty</b></a> <a href="https://www.bazos.cz/moje-inzeraty.php"><b>Moje inzeráty</b></a> <a href="/pridat-inzerat.php"><b><span class=pridati>Přidat inzerát</span></b></a></div>
+</div>
+
+<form name="formt" id="formt" method=get action="/search.php">
+<div class="listah">
+<div class="rubriky">
+<b>
+Co: <span class=vysokoli><span id="vysledek"></span><input type="search" onkeyup="naseptavac(this.value);" id=hledat name=hledat size="17" maxlength="256" value="skoda yeti" autocomplete="off" title="Co? Vyhledávaný výraz" ></span>
+
+<select name="rubriky" onchange='this.form.submit();' title="Vyber rubriku">
+<option value="www" selected>Všechny rubriky</option>
+<option value="auto">Auto</option>
+<option value="deti">Děti</option>
+<option value="dum">Dům a zahrada</option>
+<option value="elektro">Elektro</option>
+<option value="foto">Foto</option>
+<option value="hudba">Hudba</option>
+<option value="knihy">Knihy</option>
+<option value="mobil">Mobily</option>
+<option value="motorky">Motorky</option>
+<option value="nabytek">Nábytek</option>
+<option value="obleceni">Oblečení</option>
+<option value="pc">PC</option>
+<option value="prace">Práce</option>
+<option value="reality">Reality</option>
+<option value="sluzby">Služby</option>
+<option value="sport">Sport</option>
+<option value="stroje">Stroje</option>
+<option value="vstupenky">Vstupenky</option>
+<option value="zvirata">Zvířata</option>
+<option value="ostatni">Ostatní</option>
+</select>
+
+Lokalita: <span class=vysokolipsc><span id="vysledekpsc"></span><input type="search" name="hlokalita" id="hlokalita" onkeyup="naseptavacpsc(this.value);" onclick="naseptavacpsc(this.value);" value="" size="4" maxlength="25" autocomplete="off" title="Kde? PSČ (místo)" style="-webkit-appearance: none;"></span>
+Okolí: <input name="humkreis" title="Okolí v km" value="25" size="3" style="width: 25px;"> km
+Cena od: <input name=cenaod title="Cena od Kč" maxlength="12" size="5" value="75000"> - do: <input name=cenado title="Cena do Kč" maxlength="12" size="5" value="150000"> Kč <input type="submit" name="Submit" value="Hledat">
+<input type="hidden" name="kitx" value="ano"></b>
+</div>
+</div>
+</form>
+<div class="drobky"><a href="https://www.bazos.cz/" title="Inzerce Bazoš">Hlavní stránka</a> > <b>Vyhledávání</b> > <h1 class="nadpiskategorie">skoda yeti</h1></div><br>
+
+
+
+<div class="flexmain"><div class="menuleft"><div class="nadpismenu">Inzerce</div>
+<div class="barvalmenu">
+<div class="barvaleva">
+<div align="center">
+
+<br>
+<a href="https://auto.bazos.cz/"><b>Auto</b></a>
+Inzeráty Celkem: 354048<br>
+Za 24 hodin: 18138<br><br>
+
+<br>
+<a href="https://deti.bazos.cz/"><b>Děti</b></a>
+Inzeráty Celkem: 216303<br>
+Za 24 hodin: 6782<br><br>
+
+<br>
+<a href="https://dum.bazos.cz/"><b>Dům a zahrada</b></a>
+Inzeráty Celkem: 106858<br>
+Za 24 hodin: 3603<br><br>
+
+<br>
+<a href="https://elektro.bazos.cz/"><b>Elektro</b></a>
+Inzeráty Celkem: 70665<br>
+Za 24 hodin: 2813<br><br>
+
+<br>
+<a href="https://foto.bazos.cz/"><b>Foto</b></a>
+Inzeráty Celkem: 11611<br>
+Za 24 hodin: 489<br><br>
+
+<br>
+<a href="https://hudba.bazos.cz/"><b>Hudba</b></a>
+Inzeráty Celkem: 17463<br>
+Za 24 hodin: 615<br><br>
+
+<br>
+<a href="https://knihy.bazos.cz/"><b>Knihy</b></a>
+Inzeráty Celkem: 52575<br>
+Za 24 hodin: 1307<br><br>
+
+<br>
+<a href="https://mobil.bazos.cz/"><b>Mobily</b></a>
+Inzeráty Celkem: 23684<br>
+Za 24 hodin: 1249<br><br>
+
+<br>
+<a href="https://motorky.bazos.cz/"><b>Motorky</b></a>
+Inzeráty Celkem: 55695<br>
+Za 24 hodin: 2037<br><br>
+
+<br>
+<a href="https://nabytek.bazos.cz/"><b>Nábytek</b></a>
+Inzeráty Celkem: 68767<br>
+Za 24 hodin: 2691<br><br>
+
+<br>
+<a href="https://obleceni.bazos.cz/"><b>Oblečení</b></a>
+Inzeráty Celkem: 134010<br>
+Za 24 hodin: 3870<br><br>
+
+<br>
+<a href="https://pc.bazos.cz/"><b>PC</b></a>
+Inzeráty Celkem: 48367<br>
+Za 24 hodin: 2548<br><br>
+
+<br>
+<a href="https://prace.bazos.cz/"><b>Práce</b></a>
+Inzeráty Celkem: 7138<br>
+Za 24 hodin: 566<br><br>
+
+<br>
+<a href="https://reality.bazos.cz/"><b>Reality</b></a>
+Inzeráty Celkem: 42663<br>
+Za 24 hodin: 1622<br><br>
+
+<br>
+<a href="https://sluzby.bazos.cz/"><b>Služby</b></a>
+Inzeráty Celkem: 10241<br>
+Za 24 hodin: 672<br><br>
+
+<br>
+<a href="https://sport.bazos.cz/"><b>Sport</b></a>
+Inzeráty Celkem: 83222<br>
+Za 24 hodin: 3077<br><br>
+
+<br>
+<a href="https://stroje.bazos.cz/"><b>Stroje</b></a>
+Inzeráty Celkem: 56559<br>
+Za 24 hodin: 2314<br><br>
+
+<br>
+<a href="https://vstupenky.bazos.cz/"><b>Vstupenky</b></a>
+Inzeráty Celkem: 3008<br>
+Za 24 hodin: 117<br><br>
+
+<br>
+<a href="https://zvirata.bazos.cz/"><b>Zvířata</b></a>
+Inzeráty Celkem: 46688<br>
+Za 24 hodin: 2563<br><br>
+
+<br>
+<a href="https://ostatni.bazos.cz/"><b>Ostatní</b></a>
+Inzeráty Celkem: 147136<br>
+Za 24 hodin: 4350<br><br>
+
+
+
+</div>
+</div></div>
+<br><br>
+
+
+
+<br><span class="mobilskryt">
+<iframe src="https://www.bazos.cz/reklamajasminka.php" style="border: 0px;width:100%; height:300px;overflow: hidden;"></iframe></span>
+</div><div class="maincontent">
+
+
+<div class="listainzerat inzeratyflex">
+<div class="inzeratynadpis"><img src="https://www.bazos.cz/obrazky/list.gif" width="18" height="16" alt="List inzerátů" class=gallerylista> <a href="/search.php?hledat=skoda+yeti&hlokalita=&humkreis=25&cenaod=75000&cenado=150000&order=&crz=20&gal=g" rel="nofollow"><img src="https://www.bazos.cz/obrazky/gallery.gif" width="18" height="16" alt="Galerie" class=gallerylist></a> Zobrazeno 21-30 inzerátů z 30</div>
+<div class="inzeratycena"><b><a href="/search.php?hledat=skoda+yeti&hlokalita=&humkreis=25&cenaod=75000&cenado=150000&order=1" rel="nofollow">Cena</a></b></div>
+<div class="inzeratylok">Lokalita</div>
+<div class="inzeratyview"><a href="/search.php?hledat=skoda+yeti&hlokalita=&humkreis=25&cenaod=75000&cenado=150000&order=3" rel="nofollow">Zobrazeno</a></div>
+</div><button type="button" onclick="odeslatrequest('/agent.php?teloverit=');overlay();">Nové inzeráty e-mailem</button>
+	<div id="overlay">
+     <div></div>
+</div>
+
+<div id="container_one"></div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/159322526/skoda-yeti.php"><img src="https://www.bazos.cz/img/1t/526/159322526.jpg?t=1666553881" class="obrazek" alt="Škoda Yeti" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/159322526/skoda-yeti.php">Škoda Yeti</a></h2><span class=velikost10> - [18.10. 2022]</span><br>
+<div class=popis>Škoda <b>yeti</b> 2.0tdi, 81kw. 4x4 Na voze je dost kosmetiky, viz foto. Výbava vozu pohon 4x4, tažné zařízení, režim offroad, klimatizace, asistent rozjezdu do kopce, tempomat, 6ti stupňová převodovka, přední El. okna. Pravidelně servisované, nové žhavicí svíčky, spojka včetně setrvačníku, rozvody, přední ...</div><br><br>
+</div>
+<div class="inzeratycena"><b>  135 000 Kč</b></div>
+<div class="inzeratylok">Olomouc<br>772 00</div>
+<div class="inzeratyview">1174 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=159322526&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=159322526&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=5787629&idphone=3343131&jmeno=Marcel" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/159322526.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/159193265/skoda-yeti.php"><img src="https://www.bazos.cz/img/1t/265/159193265.jpg" class="obrazek" alt="škoda Yeti" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/159193265/skoda-yeti.php">škoda Yeti</a></h2><span class=velikost10> - [16.10. 2022]</span><br>
+<div class=popis>Prodám Škoda <b>yeti</b> 1.4TSI. Nájezd 394.000 km. Rozvody dělány při 330 tis Km. Motorizace 1.4TSI, 90kW, EURO 5 V provozu od 7/2012 Vyrobeno v roce 2012. Po prvním majiteli v CZ, pravidelně servisováno a garážováno. Vozidlo je motoricky a mechanicky ve výborném stavu, jede krásně, nikde nic nebouchá. ko ...</div><br><br>
+</div>
+<div class="inzeratycena"><b>  130 000 Kč</b></div>
+<div class="inzeratylok">Vyškov<br>683 33</div>
+<div class="inzeratyview">639 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=159193265&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=159193265&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=5729528&idphone=3212195&jmeno=Gregor+Zden%C4%9Bk" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/159193265.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/159175610/skoda-yeti-20tdi-103kw-4x4.php"><img src="https://www.bazos.cz/img/1t/610/159175610.jpg?t=1667028058" class="obrazek" alt="Škoda Yeti 2.0TDi 103kw 4x4" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/159175610/skoda-yeti-20tdi-103kw-4x4.php">Škoda Yeti 2.0TDi 103kw 4x4</a></h2><span class=velikost10> - [15.10. 2022]</span><br>
+<div class=popis>Prodam Škoda <b>yeti</b> 2.0 Tdi 103kw 4x4,rok 2010,398.000km, nový komplet  motor 95,000km nový DPF,vyhřívaná sedadla, multifunkční volant, tempomat, dešťový senzor, park senzory, digitální dvouzónová klimatizace, asistent jízdy z kopce, tažné, Asistent rozjedu do kopce zimní pneu 7mm</div><br><br>
+</div>
+<div class="inzeratycena"><b>  150 000 Kč</b></div>
+<div class="inzeratylok">Svitavy<br>572 01</div>
+<div class="inzeratyview">1164 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=159175610&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=159175610&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=5713392&idphone=3228200&jmeno=Yeti+" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/159175610.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/159149923/skoda-yeti-14-tsi-4x2-dsg-8pneu-navi-volant.php"><img src="https://www.bazos.cz/img/1t/923/159149923.jpg" class="obrazek" alt="Škoda Yeti 1.4 TSI 4x2, DSG, 8pneu, Navi, Volant" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/159149923/skoda-yeti-14-tsi-4x2-dsg-8pneu-navi-volant.php">Škoda Yeti 1.4 TSI 4x2, DSG, 8pneu, Navi, Volant</a></h2><span class=velikost10> - [15.10. 2022]</span><br>
+<div class=popis>Zásuvka; Pravé zrcátko; Levé kosmetické zrcátko; Látkové vybavení; Malý stůl v pozadí; Přední stěrače s intervalem; Stálý pohon všech kol; Vyhřívatelné trysky ostřikovačů; Přihrádka na brýle; Výškově nastavitelné sedadlo spolujezdce; Sklopná nebo odnímatelná zadní sedadla; 3 zadní opěrky hlavy; Před ...</div><br><br>
+</div>
+<div class="inzeratycena"><b>  109 000 Kč</b></div>
+<div class="inzeratylok">Praha 5<br>155 31</div>
+<div class="inzeratyview">1091 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=159149923&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=159149923&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=6224590&idphone=3859383&jmeno=Hana+Rybensk%C3%A1" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/159149923.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/159126022/skoda-yeti-20-ambition-plus-81kw-32011.php"><img src="https://www.bazos.cz/img/1t/022/159126022.jpg?t=1667989457" class="obrazek" alt="Skoda Yeti  2.0 Ambition Plus 81KW 3/2011" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/159126022/skoda-yeti-20-ambition-plus-81kw-32011.php">Skoda Yeti  2.0 Ambition Plus 81KW 3/2011</a></h2><span class=velikost10> - [14.10. 2022]</span><br>
+<div class=popis>Rok výroby: 2011
+Motor: diesel (1968 cm3, 81kW)
+Karosérie: SUV
+VIN: 28118
+Najeto: 202 020 KM
+5 rychlostních stupňů; 6x airbag; ABS; airbag řidiče; alu kola; aut. aktivace výstražných světlometů; aut. klimatizace; autorádio; CD přehrávač; centrál dálkový; centrální zamykání; deaktivace airbagu s ...</div><br><br>
+</div>
+<div class="inzeratycena"><b>  139 000 Kč</b></div>
+<div class="inzeratylok">Beroun<br>266 01</div>
+<div class="inzeratyview">566 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=159126022&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=159126022&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=4286588&idphone=98365&jmeno=Pavel" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/159126022.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/158569655/prodam-yeti-12-77kwvyborny-stav-nova-tech-do-2024.php"><img src="https://www.bazos.cz/img/1t/655/158569655.jpg?t=1667772193" class="obrazek" alt="Prodám Yeti 1.2 77kw.vyborny stav  Nová  tech do 2024" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/158569655/prodam-yeti-12-77kwvyborny-stav-nova-tech-do-2024.php">Prodám Yeti 1.2 77kw.vyborny stav  Nová  tech do 2024</a></h2><span class=velikost10> - [2.10. 2022]</span><br>
+<div class=popis>Prodám <b>yeti</b> škoda 1.2 77w benzin, rok výroby 2010, 2x ele okna, Abs, olej výměna, destičky, najeto 215xx  , rádio originál, lité kola, jede velmi dobře, přepis požadují!! Bez investic!! Cena 145tis 
+
+
+
+
+
+
+</div><br><br>
+</div>
+<div class="inzeratycena"><b>  145 000 Kč</b></div>
+<div class="inzeratylok">Jablonec nad Nisou<br>466 02</div>
+<div class="inzeratyview">197 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=158569655&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=158569655&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=5878151&idphone=49157&jmeno=Lenno" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/158569655.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/158093759/skoda-yeti-16tdi-adventure-77kw-2013-188tiskm.php"><img src="https://www.bazos.cz/img/1t/759/158093759.jpg?t=1663836911" class="obrazek" alt="Škoda Yeti 1.6Tdi Adventure, 77kw, 2013, 188tis.km" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/158093759/skoda-yeti-16tdi-adventure-77kw-2013-188tiskm.php">Škoda Yeti 1.6Tdi Adventure, 77kw, 2013, 188tis.km</a></h2><span class=velikost10> - <span title="TOP 1x Platí do 29.9. 2022" class="ztop">TOP</span> - [29.9. 2022]</span><br>
+<div class=popis>Prodám Škoda <b>yeti</b> 1.6Tdi Adventure, 77kw, 5/2013, naj. 188 000km, TZ, nové rozvody ve 180tis.km, bez koroze dveří. Poškození viz. foto. Více info na tel. 777 040 560.</div><br><br>
+</div>
+<div class="inzeratycena"><b>  94 000 Kč</b></div>
+<div class="inzeratylok">Karviná<br>735 32</div>
+<div class="inzeratyview">2440 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=158093759&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=158093759&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=2142765&idphone=4709&jmeno=Setcar" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/158093759.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/158395878/skoda-yeti-20tdi-81kw-rv-2010.php"><img src="https://www.bazos.cz/img/1t/878/158395878.jpg?t=1668176556" class="obrazek" alt="Škoda Yeti 2.0TDI 81kW, r.v. 2010" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/158395878/skoda-yeti-20tdi-81kw-rv-2010.php">Škoda Yeti 2.0TDI 81kW, r.v. 2010</a></h2><span class=velikost10> - [28.9. 2022]</span><br>
+<div class=popis> Škoda <b>yeti</b> 2.0TDI 81kW, r.v.: 2010, najeto 196000 km.
+Ve 183 000 dělané :
+- rozvody+vodní pumpa
+- výměna termoststu 
+- AGR ventil
+- Chladič + klima kompresor 
+-  nová STK 
+- nové celoroční pneumatiky 
+
+Kosmetické vady odpovídají stáří vozu. Přesto velmi zachovalé.
+Spotřeba 5,5 litrů 
+
+</div><br><br>
+</div>
+<div class="inzeratycena"><b>  135 000 Kč</b></div>
+<div class="inzeratylok">Teplice<br>417 12</div>
+<div class="inzeratyview">821 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=158395878&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=158395878&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=0&idphone=3810804&jmeno=Tom%C3%A1%C5%A1+Hr%C3%A1%C4%8Dek+" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/158395878.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/158059665/prodam-skoda-yeti-20tdi-4x4-103kw.php"><img src="https://www.bazos.cz/img/1t/665/158059665.jpg" class="obrazek" alt="Prodám Škoda Yeti 2.0TDI 4x4 103kW" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/158059665/prodam-skoda-yeti-20tdi-4x4-103kw.php">Prodám Škoda Yeti 2.0TDI 4x4 103kW</a></h2><span class=velikost10> - [21.9. 2022]</span><br>
+<div class=popis>Prodám Škoda <b>yeti</b> 2.0TDI 4x4 103kW
+
+malé opravy laku,
+r.v. 5/2010,
+tach. 350 180 km,
+STK 7/2024,
+barva červená metalíza,
+ALU kola,
+pneu zimní 8mm</div><br><br>
+</div>
+<div class="inzeratycena"><b>  120 000 Kč</b></div>
+<div class="inzeratylok">Liberec<br>460 08</div>
+<div class="inzeratyview">2429 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=158059665&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=158059665&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=0&idphone=581823&jmeno=alda" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/158059665.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+
+<div class="inzeraty inzeratyflex">
+<div class="inzeratynadpis"><a href="https://auto.bazos.cz/inzerat/158052405/skoda-yeti-12tsi-77-kw-ambiente-2009.php"><img src="https://www.bazos.cz/img/1t/405/158052405.jpg" class="obrazek" alt="Škoda Yeti  1.2TSi 77 kw Ambiente - 2009" width="140" height="105"></a>
+<h2 class=nadpis><a href="https://auto.bazos.cz/inzerat/158052405/skoda-yeti-12tsi-77-kw-ambiente-2009.php">Škoda Yeti  1.2TSi 77 kw Ambiente - 2009</a></h2><span class=velikost10> - [21.9. 2022]</span><br>
+<div class=popis>Dobrý den. Prodám Škoda <b>yeti</b> 1.2TSi/77 kw,r.v. 2009, najeto 281943 km, STK 09/2022,4x airbag; 6 rychlostních stupňů; ABS; autorádio; AUX; centrál dálkový; deaktivace airbagu spolujezdce; denní svícení; el. přední okna; el. zrcátka; imobilizér; isofix; man. klimatizace; manuální převodovka; mlhovky;  ...</div><br><br>
+</div>
+<div class="inzeratycena"><b>  139 900 Kč</b></div>
+<div class="inzeratylok">Jindřichův Hradec<br>378 41</div>
+<div class="inzeratyview">568 x</div>
+<div class="inzeratyakce">
+<a href="https://www.bazos.cz/report.php?idad=158052405&report=1" class="akce" rel="nofollow">Označit špatný inzerát</a> <a href="https://www.bazos.cz/report.php?idad=158052405&report=2" class="akce" rel="nofollow">Chybnou kategorii</a> <a href="https://www.bazos.cz/hodnoceni.php?idmail=1759463&idphone=49934&jmeno=isauto" class="akce" rel="nofollow">Ohodnotit uživatele</a> <a href="https://auto.bazos.cz/smazat/158052405.php" class="akce" rel="nofollow">Smazat/Upravit/Topovat</a>
+</div>
+</div>
+<div id="container_two"></div><br>
+<br><div class="strankovani">Stránka: <a href="search.php?hledat=skoda+yeti&hlokalita=&humkreis=25&cenaod=75000&cenado=150000&order=" rel="nofollow"><b>Předchozí</b></a> <a href="search.php?hledat=skoda+yeti&hlokalita=&humkreis=25&cenaod=75000&cenado=150000&order=" rel="nofollow">1</a> <b><span class=cisla>2</span></b></div><br>
+
+</div></div><script type="text/javascript" charset="utf-8">
+var pageOptions = {
+  'pubId': 'pub-3645948300403337',
+  'query' : 'skoda yeti',
+  'channel': '4719857758',
+  'linkTarget' : '_blank',
+  'styleId' : '6171314811',  'adPage': 2,
+  'hl': 'cs'
+};
+
+
+var adblock1 = {
+  'container': 'container_one',
+  'width': 'auto',
+  'maxTop' : 2
+};
+
+var adblock2 = {
+  'container': 'container_two',
+  'width': 'auto',
+  'number' : 2
+};
+
+_googCsa('ads', pageOptions, adblock2);</script>
+<br>
+
+&copy;2022 Bazoš -  <b>Inzerce, Bazar</b><br>
+<a href="https://www.bazos.cz/napoveda.php">Nápověda</a>, <a href="https://www.bazos.cz/dotazy.php">Dotazy</a>, <a href="https://www.bazos.cz/hodnoceni.php">Hodnocení</a>, <a href="https://www.bazos.cz/kontakt.php">Kontakt</a>, <a href="https://www.bazos.cz/reklama.php">Reklama</a>, <a href="https://www.bazos.cz/podminky.php">Podmínky</a>, <a href="https://www.bazos.cz/ochrana-udaju.php">Ochrana údajů</a>, <a href="https://www.bazos.cz/rss.php?humkreis=25&hledat=skoda+yeti&cenaod=75000&cenado=150000">RSS</a>, <a href="/search.php?hledat=skoda+yeti&hlokalita=&humkreis=25&cenaod=75000&cenado=150000&order=&crz=20&vkm=m" rel="nofollow">Mobilní verze</a><br>
+Inzeráty celkem:<b>
+1556701</b>, inzerce za 24 hodin: <b>61423</b><br><br>
+<a href="https://www.bazos.cz/mapa-kategorie.php">Mapa kategorií</a>, <a href="https://www.bazos.cz/mapa-search.php">Nejvyhledávanější výrazy</a>, Tmavý motiv: <a href="/?darkmode=1">Vypnuto</a><br>
+Země: <a href="https://www.bazos.cz">Česká republika</a>, <a href="https://www.bazos.sk">Slovensko</a>, <a href="https://www.bazos.pl">Polsko</a>, <a href="https://www.bazos.at">Rakousko</a>
+<br>
+<br>
+</div>
+
+<!-- (C)2000-2015 Gemius SA - gemiusAudience / bazos.cz / Hlavni strana vse -->
+<script type="text/javascript">
+<!--//--><![CDATA[//><!--
+var pp_gemius_identifier = '0nfqxqMuGyaPC_raavXXZLcdHWwkWG7c7kBlmwnGKxv.P7';
+// lines below shouldn't be edited
+function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0],l='http'+((location.protocol=='https:')?'s':''); gt.setAttribute('async','async');
+gt.setAttribute('defer','defer'); gt.src=l+'://spir.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+//--><!]]>
+</script>
+<script>
+const cyrb53 = function(str, seed = 0) {
+   let h1 = 0xdeadbeef ^ seed,
+      h2 = 0x41c6ce57 ^ seed;
+   for (let i = 0, ch; i < str.length; i++) {
+      ch = str.charCodeAt(i);
+      h1 = Math.imul(h1 ^ ch, 2654435761);
+      h2 = Math.imul(h2 ^ ch, 1597334677);
+   }
+   h1 = Math.imul(h1 ^ h1 >>> 16, 2246822507) ^ Math.imul(h2 ^ h2 >>> 13, 3266489909);
+   h2 = Math.imul(h2 ^ h2 >>> 16, 2246822507) ^ Math.imul(h1 ^ h1 >>> 13, 3266489909);
+   return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+};
+
+let clientIP = "178.255.168.152";
+let validityInterval = Math.round (new Date() / 1000 / 3600 / 24 / 4);
+let clientIDSource = clientIP + ";" + window.location.host + ";" + navigator.userAgent + ";" + navigator.language + ";" + validityInterval;
+let clientIDHashed = cyrb53(clientIDSource).toString(16);
+
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-58407-2', {
+   'storage': 'none',
+   'clientId': clientIDHashed
+});
+ga('set', 'anonymizeIp', true);
+ga('send', 'pageview');
+</script>
+</body>
+</html>
