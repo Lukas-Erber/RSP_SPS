@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Sob 19. lis 2022, 12:56
+-- Vytvořeno: Pon 21. lis 2022, 23:36
 -- Verze serveru: 10.4.25-MariaDB
 -- Verze PHP: 8.1.10
 
@@ -126,7 +126,12 @@ CREATE TABLE `uzivatel` (
 --
 
 INSERT INTO `uzivatel` (`id`, `id_role`, `login`, `heslo`, `jmeno`, `prijmeni`, `email`) VALUES
-(1, 2, 'test', '$2y$10$kulxTzH8sVFmt1YAD/Gawuf4CqNuPJU6537c79QSx0DpvICeMb8qm', 'test', 'test', 'test@test.cz');
+(1, 2, 'test', '$2y$10$kulxTzH8sVFmt1YAD/Gawuf4CqNuPJU6537c79QSx0DpvICeMb8qm', 'test', 'test', 'test@test.cz'),
+(2, 1, 'admin', '$2y$10$kulxTzH8sVFmt1YAD/Gawuf4CqNuPJU6537c79QSx0DpvICeMb8qm', 'admin', 'admin', 'admin@email.cz'),
+(3, 2, 'autor', '$2y$10$kulxTzH8sVFmt1YAD/Gawuf4CqNuPJU6537c79QSx0DpvICeMb8qm', 'Prokop', 'Buben', 'prokop@buben.cz'),
+(4, 3, 'redaktor', '$2y$10$kulxTzH8sVFmt1YAD/Gawuf4CqNuPJU6537c79QSx0DpvICeMb8qm', 'Nějaký', 'Jméno', 'redaktor@email.cz'),
+(5, 4, 'sefredaktor', '$2y$10$kulxTzH8sVFmt1YAD/Gawuf4CqNuPJU6537c79QSx0DpvICeMb8qm', 'Šéfredaktorovo', 'Jméno', 'sefredaktor@email.cz'),
+(6, 5, 'recenzent', '$2y$10$kulxTzH8sVFmt1YAD/Gawuf4CqNuPJU6537c79QSx0DpvICeMb8qm', 'Recenzent', 'Aaaa', 'recenzent@email.cz');
 
 --
 -- Indexy pro exportované tabulky
@@ -200,7 +205,7 @@ ALTER TABLE `stav`
 -- AUTO_INCREMENT pro tabulku `uzivatel`
 --
 ALTER TABLE `uzivatel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
