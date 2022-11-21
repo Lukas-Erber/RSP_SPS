@@ -14,7 +14,7 @@
           <img src="./img/sps-logo.png" alt="samurailogo" />
           <div class="nav-menu">
             <ul>
-                <?php include 'includes/menu.inc.php'; ?>               
+              <?php include 'includes/menu.inc.php'; ?>              
             </ul>
           </div>
           <?php include 'includes/icons.inc.php'; ?>
@@ -24,15 +24,8 @@
 
     <section>
       <div class="container">
-        <h1>Samurai Programming Solution Magazine</h1>
-        <div class="our-intro">
-          <p>
-            <b>Samurai Programming Solution</b> je vysokoškolský odborný
-            recenzovaný časopis, který slouží pro publikační aktivity
-            akademických pracovníků Vysoké školy polytechnické Jihlava i jiných
-            vysokých škol, univerzit a výzkumných organizací.
-          </p>
-        </div>
+        <h1>Administrace</h1>
+      </div>
     </section>
 
     <?php include 'includes/footer.inc.php'; ?>
