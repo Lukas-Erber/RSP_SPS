@@ -35,6 +35,17 @@
         </div>
     </section>
 
+    <section>
+        <div class="container">
+            <h1>obsahová čáast</h1>
+            <div class="">
+                <?php
+                require "includes/obsah_general.php";
+                ?>
+            </div>
+    </section>
+
+
     <?php include 'includes/footer.inc.php'; ?>
   </body>
 </html>
