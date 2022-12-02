@@ -67,6 +67,17 @@ li:hover {
   color: black;
 }
 
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icons-right {
+  display: flex;
+  justify-content: start;
+}
+
 .icons {
   display: flex;
   justify-content: space-between;
@@ -178,7 +189,7 @@ section .container {
   cursor: pointer;
 }
 
-section table {
+/* section table {
   display: flex;
   justify-content: center;
 }
@@ -199,6 +210,15 @@ section td {
 section td:hover {
   border: 1px solid #df3011;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+} */
+
+table {
+  display: table;
+}
+
+th,
+td {
+  border-bottom: 1px solid #ddd;
 }
 
 footer .container {

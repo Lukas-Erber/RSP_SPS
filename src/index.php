@@ -11,14 +11,41 @@
     <header>
       <div class="container">
         <div class="main-head">
+          <div class="left-side">
           <img src="./img/sps-logo.png" alt="samurailogo" />
+          <?php 
+        if (isset($_SESSION["uzivatel_id"])) {
+          echo $_SESSION["jmeno"];
+          echo " ";
+          echo $_SESSION["prijmeni"];
+          echo "<br>";
+          echo "Vaše role je: ";
+          echo $_SESSION["role_nazev"];
+        }
+        ?>
+          </div>
           <div class="nav-menu">
             <ul>
                 <?php include 'includes/menu.inc.php'; ?>               
             </ul>
           </div>
+          <div class="right-side">
+            <div class="icons-right">
           <?php include 'includes/icons.inc.php'; ?>
+          </div>
+          <!-- <?php 
+        // if (isset($_SESSION["uzivatel_id"])) {
+        //   echo $_SESSION["jmeno"];
+        //   echo " ";
+        //   echo $_SESSION["prijmeni"];
+        //   echo "<br>";
+        //   echo "Vaše role je: ";
+        //   echo $_SESSION["role_nazev"];
+        // }
+        ?> -->
         </div>
+        </div>
+       
       </div>
     </header>
 

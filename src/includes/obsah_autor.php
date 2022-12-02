@@ -70,7 +70,7 @@ FROM clanek  WHERE id_autor = $promenna ORDER BY id DESC " ;
             $status = 0;
             echo $status;
             if ($result->num_rows >0){
-                echo "<table> <tr> 
+                echo "<table class='content-table'> <tr> 
                                         <td> ID článku          </td>
                                         <td> Název              </td>
                                         <td> Téma               </td>
@@ -83,9 +83,11 @@ FROM clanek  WHERE id_autor = $promenna ORDER BY id DESC " ;
 
 
                     //if()
-                    //echo " id článku: " . $row["id"]. " Název: " . $row["nazev"];
+                    // echo " id článku: " . $row["id"]. " Název: " . $row["nazev"];
                     echo " <tr> <td>". $row["id"]  . " </td> <td> " . $row["nazev"] ." </td> <td> " .$row["tema"]. " </td> 
                            <td> ".$row["datum"]. " </td> <td> ".$row["stav"]. " </td> <td> ".$row["spoluautori"]."</tr>" ;
+                    // echo " <tr> <td>". $row["id"]  . " </td> <td> " . $row["nazev"] ." </td> <td> " .$row["tema"]. " </td> 
+                    //        <td> ".$row["datum"]. " </td> <td> ".$row["spoluautori"]."</td></tr>" ;
                 }
                 echo "</table>";
 
