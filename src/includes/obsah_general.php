@@ -1,16 +1,6 @@
 <?php
 //require "includes/header.inc.php";
-if (isset($_SESSION["uzivatel_id"])) {
 
-    echo $_SESSION["jmeno"];
-    echo " ";
-    echo $_SESSION["prijmeni"];
-    echo " ";
-
-    echo "Vaše role je: ";
-    echo $_SESSION["role_nazev"];
-
-}
 
 if (isset($_SESSION["role_kod"])) {
     $roleKod = $_SESSION["role_kod"];

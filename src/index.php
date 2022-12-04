@@ -12,7 +12,22 @@
     <header>
       <div class="container">
         <div class="main-head">
+          <div class="left-side">
           <img src="./img/sps-logo.png" alt="samurailogo" />
+          <div class="user-info">
+        <?php
+        if (isset($_SESSION["uzivatel_id"])) {
+
+          echo '<p>'.$_SESSION["jmeno"];
+          echo " ";
+          echo $_SESSION["prijmeni"].'</p>';
+          echo "<p>Vaše role je: ";
+          echo '<b>'.$_SESSION["role_nazev"].'</b></p>';
+      
+      }
+        ?>
+          </div>
+        </div>
           <div class="nav-menu">
             <ul>
                 <?php include 'includes/menu.inc.php'; ?>               
@@ -38,7 +53,7 @@
 
     <section>
         <div class="container">
-            <h1>obsahová čáast</h1>
+            <!-- <h2>Obsahová část</h2> -->
             <div class="">
                 <?php
                 require "includes/obsah_general.php";

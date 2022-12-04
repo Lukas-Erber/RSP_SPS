@@ -90,6 +90,17 @@ header .container {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
 .nav-menu {
   display: flex;
   flex-direction: column;
@@ -138,13 +149,6 @@ section .container {
   color: #df3011;
 }
 
-.btn-add-article:hover {
-  background-color: #df3011;
-  border-radius: 10px;
-  color: white;
-  padding: 2px 5px;
-}
-
 .form-add-article {
   background-color: #ffffff;
   display: flex;
@@ -178,29 +182,31 @@ section .container {
   cursor: pointer;
 }
 
-/* section table {
+.autor-obsah {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
-section tr {
+.sablona-pridat {
   display: flex;
-  gap: 15px;
-  margin-bottom: 15px;
+  justify-content: center;
+  gap: 30px;
 }
 
-section td {
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 5px 30px;
-  transition: 0.3s ease-in-out;
+table {
+  border-collapse: collapse;
+  width: 80%;
 }
 
-section td:hover {
-  border: 1px solid #df3011;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-} */
-
+th,
+td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
 footer .container {
   background-color: #ffffff;
   margin: auto;
@@ -210,4 +216,10 @@ footer .container {
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.obsah-autor {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }

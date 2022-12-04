@@ -1,22 +1,17 @@
-
-</div>
-<!--toto stáhne šablonu :) -->
-<div>
-    <h3>šablona pro autora ke stažení</h3>
-    <br>
+<section class="obsah-autor">
+<div class="sablona-pridat">
+    
+    <!--toto stáhne šablonu :) -->
+     <div class="sablona">   
+    <h3>Šablona ke stažení</h3>
     <a href="./sablony/sablona_SPS.docx"> <i class=" fa-sharp fa-solid fa-file-word"></i></a>
+    </div>
 
-</div>
-
-<section>
-    <div class="container">
-
-        <div class="article-table">
+        <div class="pridani">
+        <h3>Přidat článek</h3>
             <div class="head-article">
-
-                <button type="button" class="btn-add-article" data-toggle="modal" data-target="#myModal">Přidat článek</button>
+                <button type="button" class="btn-add-article" data-toggle="modal" data-target="#myModal"><i class="fa-solid fa-newspaper"></i></button>
             </div>
-
 
             <!-- Modal -->
             <div id="myModal" class="modal fade" role="dialog">
@@ -45,20 +40,13 @@
                     </div>
                 </div>
             </div>
-
-
-
         </div>
-    </div>
-</section>
-<section>
-    <div class="container">
-        <div>
-            <h3>
-                seznam článků publikovaných autorem:
+        </div>
+   
+  
 
-
-            </h3>
+        <div class="autor-obsah">
+            <h3>Seznam článků publikovaných autorem:</h3>
             <?php
 
             require "dbconn.inc.php";
@@ -104,7 +92,6 @@
         </div>
 
 
-    </div>
 
 </section>
 
