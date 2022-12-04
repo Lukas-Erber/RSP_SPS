@@ -27,6 +27,8 @@
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                             <h4 class="modal-title">Přidání nového článku</h4>
+
+
                         </div>
                         <div class="modal-body">
                             <form action="upload.php" method="post" class="form-add-article" enctype="multipart/form-data">
@@ -54,23 +56,29 @@
         <div>
             <h3>
                 seznam článků publikovaných autorem:
-                <?php
-                $sql= "SELECT id, id_stav, tema, datum, nazev,"
-                ?>
+
 
             </h3>
             <?php
+
             require "dbconn.inc.php";
             $promenna = $_SESSION["uzivatel_id"];
 
-            $sql= "SELECT id, id_stav, tema, datum, nazev, soubor, spoluautori
-FROM clanek  WHERE id_autor = $promenna ORDER BY id DESC " ;
+
+          /* $sql= "SELECT id, id_stav, tema, datum, nazev, soubor, spoluautori
+                    FROM clanek  WHERE id_autor = $promenna ORDER BY id DESC  " ;
+*/
+            $sql= "SELECT clanek.id, clanek.id_stav, clanek.tema, clanek.datum, clanek.nazev, clanek.soubor,
+                    clanek.spoluautori, stav.nazev AS stav_slovy
+                    FROM clanek
+                    LEFT JOIN stav ON clanek.id_stav = stav.id
+                    WHERE id_autor = $promenna 
+                    ORDER BY id DESC  " ;
 
             $result = $conn->query($sql);
-            $status = 0;
-            echo $status;
+
             if ($result->num_rows >0){
-                echo "<table class='content-table'> <tr> 
+                echo "<table class=tabulka > <tr> 
                                         <td> ID článku          </td>
                                         <td> Název              </td>
                                         <td> Téma               </td>
@@ -80,17 +88,10 @@ FROM clanek  WHERE id_autor = $promenna ORDER BY id DESC " ;
                               </tr>";
                 while ($row = $result->fetch_assoc()){
 
-
-
-                    //if()
-                    // echo " id článku: " . $row["id"]. " Název: " . $row["nazev"];
-                    echo " <tr> <td>". $row["id"]  . " </td> <td> " . $row["nazev"] ." </td> <td> " .$row["tema"]. " </td> 
-                           <td> ".$row["datum"]. " </td> <td> ".$row["stav"]. " </td> <td> ".$row["spoluautori"]."</tr>" ;
-                    // echo " <tr> <td>". $row["id"]  . " </td> <td> " . $row["nazev"] ." </td> <td> " .$row["tema"]. " </td> 
-                    //        <td> ".$row["datum"]. " </td> <td> ".$row["spoluautori"]."</td></tr>" ;
+                    echo " <tr > <td>". $row["id"]  . " </td> <td> " . $row["nazev"] ." </td> <td> " .$row["tema"]. " </td> 
+                           <td> ".$row["datum"]. " </td> <td> ".$row["stav_slovy"]. " </td> <td> ".$row["spoluautori"]."</tr>" ;
                 }
                 echo "</table>";
-
 
             }
             else{

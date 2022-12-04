@@ -49,8 +49,10 @@ mysqli_stmt_bind_param($stmt, "iisssss", $stavId, $userId, $tema, $today, $nazev
 
 /*if (mysqli_query($conn, $sql)) {*/
 if (mysqli_stmt_execute($stmt)) {
-    echo "Hurááá";
+ //   echo "Hurááá";
     echo '<script>alert("záznam byl úspěšně přidán")</script>';
+    header("Refresh:1; index.php");
+
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
