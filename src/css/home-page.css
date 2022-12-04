@@ -20,9 +20,6 @@ a {
 
 h1 {
   text-transform: uppercase;
-
-
-
 }
 
 section h4 {
@@ -136,7 +133,7 @@ section .container {
 .btn-add-article {
   background: none;
   border: none;
-  padding: 5 ;
+  padding: 5;
   font-size: 12px;
   color: #df3011;
 }
@@ -181,7 +178,7 @@ section .container {
   cursor: pointer;
 }
 
-section table {
+/* section table {
   display: flex;
   justify-content: center;
 }
@@ -202,7 +199,7 @@ section td {
 section td:hover {
   border: 1px solid #df3011;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-}
+} */
 
 footer .container {
   background-color: #ffffff;
@@ -214,5 +211,3 @@ footer .container {
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
-
-
