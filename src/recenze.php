@@ -32,7 +32,41 @@
           <a href="./sablony/recenzni-sablona.pdf"><i class=" fa-sharp fa-solid fa-file-word"></i></a>
         </div>  
 
+        <div class="pridani">
+          <!-- Modal -->
+          <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Přidání nového článku</h4>
+                </div>
+                
+                <div class="modal-body">
+                  <form action="upload_recenze.php" method="post" class="form-add-article" enctype="multipart/form-data">
+                    <input type="number" name="hodnoceni1" min="1" max="5">
+                    <input type="number" name="hodnoceni2" min="1" max="5">
+                    <input type="number" name="hodnoceni3" min="1" max="5">
+                    <input type="number" name="hodnoceni4" min="1" max="5">
+                    <input type="number" name="hodnoceni5" min="1" max="5">
+                    <input type="number" name="hodnoceni6" min="1" max="5">
+
+                    <button type="submit" name="submit">Uložit recenzi</button>
+                  </form>
+                </div>
+                
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Zavřít</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!--Články k recenzi -->
+        <div class="autor-obsah">
         <h3>Seznam článků přiřazených k hodnocení</h3>
         <?php 
           require_once 'includes/dbconn.inc.php';
@@ -47,12 +81,13 @@
             $result = mysqli_query($conn, $sql);
           ?>
 
-           <table>
+          <table>
             <tr>
               <th>Název článku</th>
               <th>Autor</th>
               <th>Datum</th>
               <th>Stav</th>
+              <th>Přidat recenzi</th>
             </tr>
             
             <?php 
@@ -65,12 +100,15 @@
               <td><?php echo $row["jmeno"]." ".$row["prijmeni"]; ?></td>
               <td><?php echo $row["datum"]; ?></td>
               <td><?php echo $row["stav_nazev"]; ?></td>
+              <td><a href="#"><i class="fa-solid fa-circle-plus"></i></a></td>
             </tr>
 
             <?php
                 }
               }
             ?>
+          </table>
+        </div>
       </div>
     </section>
 
