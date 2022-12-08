@@ -9,34 +9,7 @@
     <?php include 'includes/header.inc.php'; ?>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="main-head">
-          <div class="left-side">
-          <img src="./img/sps-logo.png" alt="samurailogo" />
-          <div class="user-info">
-        <?php
-        if (isset($_SESSION["uzivatel_id"])) {
-
-          echo '<p>'.$_SESSION["jmeno"];
-          echo " ";
-          echo $_SESSION["prijmeni"].'</p>';
-          echo "<p>Vaše role je: ";
-          echo '<b>'.$_SESSION["role_nazev"].'</b></p>';
-      
-      }
-        ?>
-          </div>
-        </div>
-          <div class="nav-menu">
-            <ul>
-                <?php include 'includes/menu.inc.php'; ?>               
-            </ul>
-          </div>
-          <?php include 'includes/icons.inc.php'; ?>
-        </div>
-      </div>
-    </header>
+    <?php include 'includes/main-bar.inc.php'; ?>
 
     <section>
       <div class="container">

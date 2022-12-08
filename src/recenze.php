@@ -8,19 +8,7 @@
     <?php include 'includes/header.inc.php'; ?>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="main-head">
-          <img src="./img/sps-logo.png" alt="samurailogo" />
-          <div class="nav-menu">
-            <ul>
-              <?php include 'includes/menu.inc.php'; ?>
-            </ul>
-          </div>
-          <?php include 'includes/icons.inc.php'; ?>
-        </div>
-      </div>
-    </header>
+    <?php include 'includes/main-bar.inc.php'; ?>
 
     <section>
       <div class="container">
@@ -29,7 +17,7 @@
         <!--Šablona posudku -->
         <div class="sablona">   
           <h2>Šablona ke stažení</h2>
-          <a href="./sablony/recenzni-sablona.pdf"><i class=" fa-sharp fa-solid fa-file-word"></i></a>
+          <a href="./sablony/recenzni-sablona.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i></a>
         </div>  
 
         <div class="pridani">
@@ -41,7 +29,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Přidání nového článku</h4>
+                    <h4 class="modal-title">Přidání recenze</h4>
                 </div>
                 
                 <div class="modal-body">
@@ -87,7 +75,7 @@
               <th>Autor</th>
               <th>Datum</th>
               <th>Stav</th>
-              <th>Přidat recenzi</th>
+              <th>Akce</th>
             </tr>
             
             <?php 
@@ -100,7 +88,7 @@
               <td><?php echo $row["jmeno"]." ".$row["prijmeni"]; ?></td>
               <td><?php echo $row["datum"]; ?></td>
               <td><?php echo $row["stav_nazev"]; ?></td>
-              <td><a href="#"><i class="fa-solid fa-circle-plus"></i></a></td>
+              <td><button type="button" class="btn-add-article" data-toggle="modal" data-target="#myModal"<?php $row['id']?>><i class="fa-solid fa-circle-plus"></i></button></td>
             </tr>
 
             <?php
