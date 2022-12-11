@@ -166,3 +166,60 @@ function deleteClanek($conn, $clanekId) {
     mysqli_stmt_bind_param($stmt, "i", $clanekId);
     mysqli_stmt_execute($stmt);
 }
+
+function updateRecenzenty($conn, $clanekId, $recenzent1, $recenzent2) {
+    $sql = "UPDATE clanek SET id_recenzent = ?, id_recenzent2 = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "iii", $recenzent1, $recenzent2, $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function updateClanekRedaktorPotvrzeni($conn, $clanekId) {
+    $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ./redaktor.php");
+        exit();
+    }
+
+    $stav = stavExist($conn, "odeslano_k_posudku");
+
+    if ($stav == false) {
+        header("location: ./redaktor.php");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $stav["id"], $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function stavExist($conn, $stav) {
+    $sql = "SELECT * FROM stav WHERE kod = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $stav);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}

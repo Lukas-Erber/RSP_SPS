@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Počítač: 127.0.0.1
--- Vytvořeno: Pon 21. lis 2022, 23:36
+-- Vytvořeno: Ned 11. pro 2022, 12:02
 -- Verze serveru: 10.4.25-MariaDB
 -- Verze PHP: 8.1.10
 
@@ -31,6 +31,8 @@ CREATE TABLE `clanek` (
   `id` int(11) NOT NULL,
   `id_stav` int(11) NOT NULL,
   `id_autor` int(11) NOT NULL,
+  `id_recenzent` int(11) NOT NULL,
+  `id_recenzent2` int(11) NOT NULL,
   `tema` varchar(255) COLLATE utf8_czech_ci NOT NULL,
   `datum` date NOT NULL,
   `nazev` varchar(255) COLLATE utf8_czech_ci NOT NULL,
@@ -42,8 +44,8 @@ CREATE TABLE `clanek` (
 -- Vypisuji data pro tabulku `clanek`
 --
 
-INSERT INTO `clanek` (`id`, `id_stav`, `id_autor`, `tema`, `datum`, `nazev`, `soubor`, `spoluautori`) VALUES
-(1, 0, 1, 'tema', '2022-11-19', 'nazev', 'test.txt', 'autor');
+INSERT INTO `clanek` (`id`, `id_stav`, `id_autor`, `id_recenzent`, `id_recenzent2`, `tema`, `datum`, `nazev`, `soubor`, `spoluautori`) VALUES
+(2, 1, 3, 0, 0, 'Téma - téma 1, téma2', '2022-12-11', 'Název článku', 'pokus1.txt', 'Spoluautor 1, Spoluautor 2');
 
 -- --------------------------------------------------------
 
@@ -56,7 +58,13 @@ CREATE TABLE `posudek` (
   `id_uzivatel` int(11) NOT NULL,
   `id_clanek` int(11) NOT NULL,
   `datum` date NOT NULL,
-  `text` varchar(255) COLLATE utf8_czech_ci NOT NULL
+  `text` varchar(255) COLLATE utf8_czech_ci NOT NULL,
+  `aktualnost` int(11) NOT NULL,
+  `zajimavost` int(11) NOT NULL,
+  `prinosnost` int(11) NOT NULL,
+  `originalita` int(11) NOT NULL,
+  `odborna_uroven` int(11) NOT NULL,
+  `jazykova_uroven` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci;
 
 -- --------------------------------------------------------
@@ -181,7 +189,7 @@ ALTER TABLE `uzivatel`
 -- AUTO_INCREMENT pro tabulku `clanek`
 --
 ALTER TABLE `clanek`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pro tabulku `posudek`
