@@ -113,7 +113,7 @@
                               <td><?php echo $row["clanek_nazev"]; ?></td>
                               <td><?php echo $row["spoluautori"]; ?></td>
                               <td><?php echo $row["stav_nazev"]; ?></td>
-                              <td><td><a href="clanek_delete.php?id=<?php echo $row['id'];?>">Delete</a></td></td>
+                              <td><a href="clanek_delete.php?id=<?php echo $row['id'];?>">Delete</a></td>
                           </tr>
 
                           <?php
