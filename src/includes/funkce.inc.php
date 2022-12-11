@@ -154,3 +154,15 @@ function findUserRole($conn, $userRoleId) {
 
     mysqli_stmt_close($stmt);
 }
+
+function deleteClanek($conn, $clanekId) {
+    $sql = "DELETE FROM clanek WHERE id=?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $clanekId);
+    mysqli_stmt_execute($stmt);
+}

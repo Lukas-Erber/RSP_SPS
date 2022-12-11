@@ -25,7 +25,7 @@
     <section>
       <div class="container">
         <h1>Administrace</h1>
-          <!--Články k recenzi -->
+          <!--Uživatelé -->
           <div class="autor-obsah">
               <h3>Seznam uživatelů</h3>
               <?php
@@ -62,6 +62,58 @@
                               <td><?php echo $row["email"]; ?></td>
                               <td><td><a href="delete.php?id=<?php echo $row['id'];?>">Delete</a></td></td>
                               <td><td><a href="edit.php?id=<?php echo $row['id'];?>">Edit</a></td></td>
+                          </tr>
+
+                          <?php
+                      }
+                  }
+                  ?>
+
+              </table>
+          </div>
+
+          <!--Články -->
+          <div class="autor-obsah">
+              <h3>Seznam Článků</h3>
+              <?php
+              require_once 'includes/dbconn.inc.php';
+
+              $sql = "SELECT clanek.id, clanek.tema, clanek.datum, clanek.nazev as clanek_nazev, clanek.spoluautori, stav.nazev as stav_nazev, uzivatel.jmeno, uzivatel.prijmeni
+                FROM clanek
+                INNER JOIN stav ON stav.id = clanek.id_stav 
+                INNER JOIN uzivatel ON uzivatel.id = clanek.id_autor";
+
+
+              $result = mysqli_query($conn, $sql);
+
+
+              ?>
+
+              <table>
+                  <tr>
+                      <th>ID článku</th>
+                      <th>Autor</th>
+                      <th>Téma</th>
+                      <th>Datum</th>
+                      <th>Název</th>
+                      <th>Spoluautoři</th>
+                      <th>Stav</th>
+                      <th>Akce</th>
+                  </tr>
+
+                  <?php
+                  if (mysqli_num_rows($result) > 0) {
+                      while ($row = mysqli_fetch_array($result)) {
+                          ?>
+                          <tr>
+                              <td><?php echo $row["id"]; ?></td>
+                              <td><?php echo $row["jmeno"]." ".$row["prijmeni"]; ?></td>
+                              <td><?php echo $row["tema"]; ?></td>
+                              <td><?php echo $row["datum"]; ?></td>
+                              <td><?php echo $row["clanek_nazev"]; ?></td>
+                              <td><?php echo $row["spoluautori"]; ?></td>
+                              <td><?php echo $row["stav_nazev"]; ?></td>
+                              <td><td><a href="clanek_delete.php?id=<?php echo $row['id'];?>">Delete</a></td></td>
                           </tr>
 
                           <?php
