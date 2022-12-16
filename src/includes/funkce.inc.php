@@ -180,19 +180,19 @@ function updateRecenzenty($conn, $clanekId, $recenzent1, $recenzent2) {
     mysqli_stmt_close($stmt);
 }
 
-function updateClanekRedaktorPotvrzeni($conn, $clanekId) {
+function clanekPotvrzeniPridelenychRecenzentu($conn, $clanekId) {
     $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ./redaktor.php");
+        header("location: ../redaktor.php");
         exit();
     }
 
     $stav = stavExist($conn, "odeslano_k_posudku");
 
     if ($stav == false) {
-        header("location: ./redaktor.php");
+        header("location: ../redaktor.php");
         exit();
     }
 
@@ -222,4 +222,127 @@ function stavExist($conn, $stav) {
     }
 
     mysqli_stmt_close($stmt);
+}
+
+function recenzentClanekOdeslat($conn, $clanekId) {
+    $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../recenze.php");
+        exit();
+    }
+
+    $stav = stavExist($conn, "odeslano_redaktorovi");
+
+    if ($stav == false) {
+        header("location: ../recenze.php");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $stav["id"], $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function clanekPrijato($conn, $clanekId) {
+    $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    $stav = stavExist($conn, "prijato");
+
+    if ($stav == false) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $stav["id"], $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function clanekVraceno($conn, $clanekId) {
+    $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    $stav = stavExist($conn, "vraceno");
+
+    if ($stav == false) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $stav["id"], $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function clanekZamitnuto($conn, $clanekId) {
+    $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    $stav = stavExist($conn, "zamitnuto");
+
+    if ($stav == false) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $stav["id"], $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function clanekPredatSef($conn, $clanekId) {
+    $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    $stav = stavExist($conn, "kontrola_sefredaktor");
+
+    if ($stav == false) {
+        header("location: ../redaktor.php");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $stav["id"], $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}
+
+function zalozitRecenzi($conn, $clanekId, $userId) {
+    //TODO: INSERT
+    $sql = "INSERT INTO recenze (id_clanek, id_uzivatel, ) VALUES(?, ?, ?, ?, ?, ?);";
+    $stmt = mysqli_stmt_init($conn);
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../recenze.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "isssss", $idRole, $login, $passwordHash, $jmeno, $prijmeni, $email);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
+    header("location: ../recenze.php");
+    exit();
 }
