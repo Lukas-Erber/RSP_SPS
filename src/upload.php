@@ -47,11 +47,9 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
 
 mysqli_stmt_bind_param($stmt, "iiiisssss", $stavId, $userId, $recenzentId, $recenzentId, $tema, $today, $nazev, $soubor, $autori);
 
-/*if (mysqli_query($conn, $sql)) {*/
 if (mysqli_stmt_execute($stmt)) {
- //   echo "Hurááá";
     echo '<script>alert("záznam byl úspěšně přidán")</script>';
-    header("Refresh:1; index.php");
+    header("Refresh:1; clanky.php");
 
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
