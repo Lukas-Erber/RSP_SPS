@@ -8,19 +8,7 @@
     <?php include 'includes/header.inc.php'; ?>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="main-head">
-          <img src="./img/sps-logo.png" alt="samurailogo" />
-          <div class="nav-menu">
-            <ul>
-                <?php include 'includes/menu.inc.php'; ?>               
-            </ul>
-          </div>
-          <?php include 'includes/icons.inc.php'; ?>
-        </div>
-      </div>
-    </header>
+    <?php include 'includes/main-bar.inc.php'; ?>
 
     <section>
      <div class="container">
@@ -33,106 +21,12 @@
             vysokých škol, univerzit a výzkumných organizací.
           </p>
         </div>
-        <div class="article-table">
-          <div class="head-article">
-          <h2>Články</h2>
-          </div>
+    </section>
 
-          <table>
-            <tr>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-              <td>
-                <h4>Název článku</h4>
-                <p>Autor: XXX XXX</p>
-                <p>Stav</p>
-                <p>Datum</p>
-                <p>Hodnocení</p>
-              </td>
-            </tr>
-          </table>
-        </div>
-        </div>
-
+    <section>
+      <div class="container">
+        <?php require "includes/obsah_autor.inc.php"; ?>
+      </div>
     </section>
 
     <?php include 'includes/footer.inc.php'; ?>

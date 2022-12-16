@@ -25,15 +25,16 @@
     </section>
 
     <section>
-        <div class="container">
-            <!-- <h2>Obsahová část</h2> -->
-            <div class="">
-                <?php
-                require "includes/obsah_general.php";
-                ?>
-            </div>
+      <div class="container">
+        <h2>Info</h2>
+      </div>
     </section>
 
+    <section>
+      <div class="container">
+        <h2>Archiv</h2>
+      </div>
+    </section>
 
     <?php include 'includes/footer.inc.php'; ?>
   </body>
