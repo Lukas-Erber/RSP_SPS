@@ -10,11 +10,10 @@ $tema       = filter_var(trim($_POST['tema']),              FILTER_SANITIZE_STRI
 $soubor     = filter_var(trim($_FILES['soubor']['name']),   FILTER_SANITIZE_STRING);
 
 $error = "";
-if(trim($nazev)=='')
+if(trim($nazev) == '') {
     $error = "zadejte jméno článku" . '<br>';
-elseif (trim($autori) == ''){
-    $error = "zadejte jméno autora" . '<br>';
 }
+
 
 elseif (trim($tema) == ''){$error = "Zadejte téma článku" . '<br>';}
 
@@ -33,11 +32,12 @@ if (move_uploaded_file($_FILES['soubor']['tmp_name'], 'pdf/'.$_FILES['soubor']['
     echo "soubor nebyl zkopírován". '<br>';
 }
 
-$sql = "INSERT INTO clanek (id_stav, id_autor, tema, datum, nazev, soubor, spoluautori) values(?, ?, ?, ?, ?, ?, ?)" ;
+$sql = "INSERT INTO clanek (id_stav, id_autor, id_recenzent, id_recenzent2, tema, datum, nazev, soubor, spoluautori) values(?, ?, ?, ?, ?, ?, ?, ?, ?)" ;
 $stmt = mysqli_stmt_init($conn);
 
 $today = date("Y-m-d");
-$stavId = 0;
+$stavId = 1;
+$recenzentId = 0;
 $userId = $_SESSION["uzivatel_id"];
 
 if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -45,7 +45,7 @@ if (!mysqli_stmt_prepare($stmt, $sql)) {
     exit();
 }
 
-mysqli_stmt_bind_param($stmt, "iisssss", $stavId, $userId, $tema, $today, $nazev, $soubor, $autori);
+mysqli_stmt_bind_param($stmt, "iiiisssss", $stavId, $userId, $recenzentId, $recenzentId, $tema, $today, $nazev, $soubor, $autori);
 
 /*if (mysqli_query($conn, $sql)) {*/
 if (mysqli_stmt_execute($stmt)) {
