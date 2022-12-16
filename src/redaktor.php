@@ -44,7 +44,7 @@
                 INNER JOIN uzivatel AS autor ON autor.id = clanek.id_autor
                 LEFT JOIN uzivatel AS recenzent ON recenzent.id = clanek.id_recenzent  
                 LEFT JOIN uzivatel AS recenzent2 ON recenzent2.id = clanek.id_recenzent2 
-                WHERE stav.kod = 'posouzeno';"; 
+                WHERE stav.kod = 'odeslano_redaktorovi';"; 
         $result_schvalovani_clanku = mysqli_query($conn, $sql_schvalovani_clanku);
 
         // Přehled článků

@@ -27,10 +27,15 @@
                         </div>
                         <div class="modal-body">
                             <form action="upload.php" method="post" class="form-add-article" enctype="multipart/form-data">
-                                <input type="text" name="nazev" id="jmeno_souboru" placeholder="Název článku">
-                                <input type="text" name="tema" id="" placeholder="Téma článku">
+                                <input type="text" name="nazev" id="jmeno_souboru" placeholder="Název článku" required="">
+                                <select name="tema" required>
+                                    <option>1/2023: Technika</option>
+                                    <option>2/2023: Příroda</option>
+                                    <option>3/2023: Finance</option>
+                                    <option>4/2023: Společenské vědy</option>
+                                </select>
                                 <input type="text" name="autori" id="" placeholder="Autoři">
-                                <input type="file" name="soubor" id="">
+                                <input type="file" name="soubor" id="" required="">
                                 <button type="submit" name="submit">Uložit článek</button>
                             </form>
                         </div>

@@ -36,7 +36,7 @@ $sql = "INSERT INTO clanek (id_stav, id_autor, id_recenzent, id_recenzent2, tema
 $stmt = mysqli_stmt_init($conn);
 
 $today = date("Y-m-d");
-$stavId = 1;
+$stavId = 1; // Přidáno
 $recenzentId = 0;
 $userId = $_SESSION["uzivatel_id"];
 

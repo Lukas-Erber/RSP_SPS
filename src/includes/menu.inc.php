@@ -1,11 +1,11 @@
 <?php 
   
   echo "<a href=\"index.php\"><li>Domů</li></a>";
-
+/*
   if (isset($_SESSION["uzivatel_id"])) {
     echo "<a href=\"profil.php\"><li>Profil</li></a>";
   }
-
+*/
   if (isset($_SESSION["role_kod"])) {
     $roleKod = $_SESSION["role_kod"];
 
@@ -23,5 +23,9 @@
 
     if (strcmp($roleKod, "redaktor") == 0) {
       echo "<a href=\"redaktor.php\"><li>Redaktor</li></a>";
+    }
+
+    if (strcmp($roleKod, "sefredaktor") == 0) {
+      echo "<a href=\"sefredaktor.php\"><li>Šéfredaktor</li></a>";
     }
   }                

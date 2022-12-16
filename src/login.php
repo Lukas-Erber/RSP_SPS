@@ -19,7 +19,7 @@
 
 				<input type="text" name="login" placeholder="Login" />
 				<input type="password" name="heslo" placeholder="Heslo" />
-				<a href="#">Nepamatujete si heslo?</a>
+				<a href="index.php">Pokračovat bez přihlášení</a>
 
 				<?php
                		 if (isset($_GET["error"])) {

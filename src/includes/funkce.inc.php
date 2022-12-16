@@ -167,6 +167,18 @@ function deleteClanek($conn, $clanekId) {
     mysqli_stmt_execute($stmt);
 }
 
+function deletePosudek($conn, $posudekId) {
+    $sql = "DELETE FROM posudek WHERE id=?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "i", $posudekId);
+    mysqli_stmt_execute($stmt);
+}
+
 function updateRecenzenty($conn, $clanekId, $recenzent1, $recenzent2) {
     $sql = "UPDATE clanek SET id_recenzent = ?, id_recenzent2 = ? WHERE clanek.id = ?;";
     $stmt = mysqli_stmt_init($conn);
@@ -229,14 +241,14 @@ function recenzentClanekOdeslat($conn, $clanekId) {
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../recenze.php");
+        header("location: recenze.php");
         exit();
     }
 
     $stav = stavExist($conn, "odeslano_redaktorovi");
 
     if ($stav == false) {
-        header("location: ../recenze.php");
+        header("location: recenze.php");
         exit();
     }
 
@@ -245,19 +257,27 @@ function recenzentClanekOdeslat($conn, $clanekId) {
     mysqli_stmt_close($stmt);
 }
 
-function clanekPrijato($conn, $clanekId) {
+function clanekPrijato($conn, $clanekId, $jeSefredaktor) {
     $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../redaktor.php");
+        if($jeSefredaktor) {
+            header("location: sefredaktor.php");
+        } else {
+            header("location: redaktor.php");
+        }
         exit();
     }
 
     $stav = stavExist($conn, "prijato");
 
     if ($stav == false) {
-        header("location: ../redaktor.php");
+        if($jeSefredaktor) {
+            header("location: sefredaktor.php");
+        } else {
+            header("location: redaktor.php");
+        }
         exit();
     }
 
@@ -266,19 +286,27 @@ function clanekPrijato($conn, $clanekId) {
     mysqli_stmt_close($stmt);
 }
 
-function clanekVraceno($conn, $clanekId) {
+function clanekVraceno($conn, $clanekId, $jeSefredaktor) {
     $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../redaktor.php");
+        if($jeSefredaktor) {
+            header("location: sefredaktor.php");
+        } else {
+            header("location: redaktor.php");
+        }
         exit();
     }
 
     $stav = stavExist($conn, "vraceno");
 
     if ($stav == false) {
-        header("location: ../redaktor.php");
+        if($jeSefredaktor) {
+            header("location: sefredaktor.php");
+        } else {
+            header("location: redaktor.php");
+        }
         exit();
     }
 
@@ -287,19 +315,27 @@ function clanekVraceno($conn, $clanekId) {
     mysqli_stmt_close($stmt);
 }
 
-function clanekZamitnuto($conn, $clanekId) {
+function clanekZamitnuto($conn, $clanekId, $jeSefredaktor) {
     $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../redaktor.php");
+        if($jeSefredaktor) {
+            header("location: sefredaktor.php");
+        } else {
+            header("location: redaktor.php");
+        }
         exit();
     }
 
     $stav = stavExist($conn, "zamitnuto");
 
     if ($stav == false) {
-        header("location: ../redaktor.php");
+        if($jeSefredaktor) {
+            header("location: sefredaktor.php");
+        } else {
+            header("location: redaktor.php");
+        }
         exit();
     }
 
@@ -313,14 +349,14 @@ function clanekPredatSef($conn, $clanekId) {
     $stmt = mysqli_stmt_init($conn);
 
     if(!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../redaktor.php");
+        header("location: redaktor.php");
         exit();
     }
 
-    $stav = stavExist($conn, "kontrola_sefredaktor");
+    $stav = stavExist($conn, "odeslano_sefredaktorovi");
 
     if ($stav == false) {
-        header("location: ../redaktor.php");
+        header("location: redaktor.php");
         exit();
     }
 
@@ -329,20 +365,22 @@ function clanekPredatSef($conn, $clanekId) {
     mysqli_stmt_close($stmt);
 }
 
-function zalozitRecenzi($conn, $clanekId, $userId) {
+function zalozitRecenzi($conn, $clanekId, $userId, $text, $aktualnost, $zajimavost, $prinosnost, $originalita, $odborna_uroven, $jazykova_uroven) {
     //TODO: INSERT
-    $sql = "INSERT INTO recenze (id_clanek, id_uzivatel, ) VALUES(?, ?, ?, ?, ?, ?);";
+    $sql = "INSERT INTO posudek (id_uzivatel, id_clanek, datum, text, aktualnost, zajimavost, prinosnost, originalita, odborna_uroven, jazykova_uroven) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
     $stmt = mysqli_stmt_init($conn);
 
     if (!mysqli_stmt_prepare($stmt, $sql)) {
-        header("location: ../recenze.php?error=stmtfailed");
+        header("location: recenze.php?error=stmtfailed");
         exit();
     }
 
-    mysqli_stmt_bind_param($stmt, "isssss", $idRole, $login, $passwordHash, $jmeno, $prijmeni, $email);
+    $datum = date("Y-m-d");
+
+    mysqli_stmt_bind_param($stmt, "iissiiiiii", $userId, $clanekId, $datum, $text, $aktualnost, $zajimavost, $prinosnost, $originalita, $odborna_uroven, $jazykova_uroven);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
-    header("location: ../recenze.php");
+    header("location: recenze.php");
     exit();
 }
