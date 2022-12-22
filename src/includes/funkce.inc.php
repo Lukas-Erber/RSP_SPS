@@ -384,3 +384,24 @@ function zalozitRecenzi($conn, $clanekId, $userId, $text, $aktualnost, $zajimavo
     header("location: recenze.php");
     exit();
 }
+
+function clanekOdeslatNakladatelstvi($conn, $clanekId) {
+    $sql = "UPDATE clanek SET id_stav = ? WHERE clanek.id = ?;";
+    $stmt = mysqli_stmt_init($conn);
+
+    if(!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: redaktor.php");
+        exit();
+    }
+
+    $stav = stavExist($conn, "odeslano_do_nakladatelstvi");
+
+    if ($stav == false) {
+        header("location: redaktor.php");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ii", $stav["id"], $clanekId);
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+}

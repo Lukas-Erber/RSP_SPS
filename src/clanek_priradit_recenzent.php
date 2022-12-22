@@ -6,4 +6,4 @@ $clanekId = trim($_GET["clanekId"]);
 
 clanekPotvrzeniPridelenychRecenzentu($conn, $clanekId);
 
-header("location: ./redaktor.php");
+header("location: redaktor.php");

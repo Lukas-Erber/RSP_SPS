@@ -10,7 +10,7 @@ if(isset($_POST["submit"])) {
 
     updateRecenzenty($conn, $clanekId, $recenzent1, $recenzent2);
 
-
+    header("location: redaktor.php");
 } else {
     header("location: redaktor.php");
     exit();

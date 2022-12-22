@@ -9,6 +9,7 @@
   </head>
   <body>
     <?php include 'includes/main-bar.inc.php'; ?>
+    <?php include 'includes/posudek-modal.inc.php'; ?>
 
     <section>
      <div class="container">
@@ -30,5 +31,25 @@
     </section>
 
     <?php include 'includes/footer.inc.php'; ?>
+
+    <script>
+      $('.rec').click(function() {     
+        var text = $(this).data('text');  
+        var hod1 = $(this).data('hod1'); 
+        var hod2 = $(this).data('hod2');
+        var hod3 = $(this).data('hod3');
+        var hod4 = $(this).data('hod4');
+        var hod5 = $(this).data('hod5');
+        var hod6 = $(this).data('hod6');
+
+        $('#text').val(text);  
+        $('#hod1').val(hod1);  
+        $('#hod2').val(hod2);
+        $('#hod3').val(hod3);
+        $('#hod4').val(hod4);
+        $('#hod5').val(hod5);
+        $('#hod6').val(hod6);
+      });
+    </script>
   </body>
 </html>
