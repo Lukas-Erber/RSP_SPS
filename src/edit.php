@@ -9,6 +9,8 @@ $id = $_GET['id'];
 $result = mysqli_query($conn," SELECT * FROM uzivatel WHERE id='".$id."'");
 $row = $result->fetch_row();
 
+
+
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +31,13 @@ $row = $result->fetch_row();
 			<form action="edit_save.php" method="POST">
                 <h1>Editace uživatelů</h1>
 				<input type="hidden" name="id" value="<?php echo $id; ?>" />
-				<input type="text" name="id_role" value="<?php echo $row[2]; ?>" placeholder="role" />
+                <h5>ID Role</h5>
+				<input type="text" name="id_role" value="<?php echo $row[1]; ?>" placeholder="role" />
+                <h5>Jméno</h5>
 				<input type="text" name="jmeno" value="<?php echo $row[4]; ?>" placeholder="Jméno" />
+                <h5>Příjmení</h5>
 				<input type="text" name="prijmeni" value="<?php echo $row[5]; ?>" placeholder="Příjmení" />
+                <h5>E-mail</h5>
 				<input type="email" name="email" value="<?php echo $row[6]; ?>"" placeholder="Email" />
 
 				<button type="submit" name="submit">editovat</button>
