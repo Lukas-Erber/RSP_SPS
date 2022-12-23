@@ -126,7 +126,7 @@
 
               <td>
                 <?php 
-                  if(empty($row["text"])) { 
+                  if(empty($row["r1_text"])) { 
                     echo "Musíte vytvořit posudek!";
                   } else {
                 ?>
