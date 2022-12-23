@@ -196,7 +196,7 @@
                             <td><?php echo $row["datum"]; ?></td>
                             <td><?php echo $row["stav_nazev"]; ?></td>
                             <td>
-                                    <a class="btn-add-article rec" data-toggle="modal" data-target="#recenzeModal" 
+                                    <a class="rec" data-toggle="modal" data-target="#recenzeModal" 
                                             data-hod1="<?php echo $row['r1_hod1'] ?>" 
                                             data-hod2="<?php echo $row['r1_hod2'] ?>" 
                                             data-hod3="<?php echo $row['r1_hod3'] ?>"
@@ -209,7 +209,7 @@
                                     <?php echo $row["recenzent_jmeno"]." ".$row["recenzent_prijmeni"]; ?></a>
                                 </td>
                                 <td>
-                                    <a class="btn-add-article rec" data-toggle="modal" data-target="#recenzeModal" 
+                                    <a class="rec" data-toggle="modal" data-target="#recenzeModal" 
                                             data-hod1="<?php echo $row['r2_hod1'] ?>" 
                                             data-hod2="<?php echo $row['r2_hod2'] ?>" 
                                             data-hod3="<?php echo $row['r2_hod3'] ?>"
