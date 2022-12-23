@@ -15,9 +15,11 @@
       require_once 'includes/dbconn.inc.php';
 
       // Přehled článků
-      $sql_clanky = "SELECT clanek.id, clanek.nazev as clanek_nazev, clanek.tema, clanek.datum, clanek.soubor, autor.jmeno, autor.prijmeni
+      $sql_clanky = "SELECT clanek.id, clanek.nazev as clanek_nazev, clanek.tema, clanek.datum, clanek.soubor, autor.jmeno, autor.prijmeni, stav.nazev as stav_nazev
                      FROM clanek
-                     INNER JOIN uzivatel AS autor ON autor.id = clanek.id_autor;"; 
+                     INNER JOIN stav ON stav.id = clanek.id_stav 
+                     INNER JOIN uzivatel AS autor ON autor.id = clanek.id_autor
+                     WHERE stav.kod = 'odeslano_do_nakladatelstvi';"; 
       $result_clanky = mysqli_query($conn, $sql_clanky);
     ?>
 
