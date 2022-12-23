@@ -22,22 +22,22 @@ $row = $result->fetch_row();
 
     <title>SPS - přihlašte se</title>
 
-    <link rel="stylesheet" type="text/css" href="css/reg-style.css">
+    <link rel="stylesheet" type="text/css" href="css/edit-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <div class="container" id="container">
 		<div class="form-container log-in-container">
 			<form action="edit_save.php" method="POST">
-                <h1>Editace uživatelů</h1>
+                <h2>Editace uživatelů</h2>
 				<input type="hidden" name="id" value="<?php echo $id; ?>" />
-                <h5>ID Role</h5>
+            	<p>ID Role</p>
 				<input type="text" name="id_role" value="<?php echo $row[1]; ?>" placeholder="role" />
-                <h5>Jméno</h5>
+                <p>Jméno</p>
 				<input type="text" name="jmeno" value="<?php echo $row[4]; ?>" placeholder="Jméno" />
-                <h5>Příjmení</h5>
+                <p>Příjmení</p>
 				<input type="text" name="prijmeni" value="<?php echo $row[5]; ?>" placeholder="Příjmení" />
-                <h5>E-mail</h5>
+                <p>E-mail</p>
 				<input type="email" name="email" value="<?php echo $row[6]; ?>"" placeholder="Email" />
 
 				<button type="submit" name="submit">editovat</button>

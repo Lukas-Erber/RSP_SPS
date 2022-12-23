@@ -93,7 +93,7 @@
                 <div class="modal-body">    
                     <form action="clanek_update_recenzent.php" method="post" class="form-add-article" enctype="multipart/form-data">
                     <input type="hidden" name="clanekid" id="clanek-id">
-                    <label>Recenzent 1: </label>
+                    <p>Recenzent 1: </p>
                     <select name="recenzent1">
                         <?php 
                             foreach ($recenzenti as $id => $jmeno) {
@@ -102,7 +102,7 @@
                         ?>
                     </select>
 
-                    <label>Recenzent 2: </label>
+                    <p>Recenzent 2: </p>
                     <select name="recenzent2">
                         <?php 
                             foreach ($recenzenti as $id => $jmeno) {
@@ -151,10 +151,10 @@
                                 <td><?php echo $row["recenzent2_jmeno"]." ".$row["recenzent2_prijmeni"]; ?></td>
 
                                 <td>
-                                    <a href="#myModal" class="aaa" role="button" data-toggle="modal" data-id="<?php echo $row['id']; ?>">
+                                    <a title="Přiřadit recenzenta" href="#myModal" class="aaa" role="button" data-toggle="modal" data-id="<?php echo $row['id']; ?>">
                                         <i class="fa-solid fa-circle-plus"></i>
                                     </a>
-                                    <a href="clanek_priradit_recenzent.php?clanekId=<?php echo $row['id']; ?>"><i class="fa-solid fa-check"></i></a>
+                                    <a title="Potvrdit" href="clanek_priradit_recenzent.php?clanekId=<?php echo $row['id']; ?>"><i class="fa-solid fa-check"></i></a>
                                 </td>
                             </tr>
 

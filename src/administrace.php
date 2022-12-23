@@ -48,6 +48,9 @@
                       <th>Jméno</th>
                       <th>Příjmení</th>
                       <th>e-mail</th>
+                      <th>Odstranit</th>
+                      <th>Upravit</th>
+
                   </tr>
 
                   <?php
@@ -60,8 +63,8 @@
                               <td><?php echo $row["jmeno"]; ?></td>
                               <td><?php echo $row["prijmeni"]; ?></td>
                               <td><?php echo $row["email"]; ?></td>
-                              <td><td><a href="delete.php?id=<?php echo $row['id'];?>">Delete</a></td></td>
-                              <td><td><a href="edit.php?id=<?php echo $row['id'];?>">Edit</a></td></td>
+                              <td><a href="delete.php?id=<?php echo $row['id'];?>">Delete</a></td>
+                              <td><a href="edit.php?id=<?php echo $row['id'];?>">Edit</a></td>
                           </tr>
 
                           <?php

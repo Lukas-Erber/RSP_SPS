@@ -1,7 +1,7 @@
 <?php
     $dbServer = "localhost";
     $dbUsername = "root";
-    $dbPassword = "";
+    $dbPassword = "root";
     $dbName = "sps-db";
 
    $conn = mysqli_connect($dbServer, $dbUsername, $dbPassword, $dbName);

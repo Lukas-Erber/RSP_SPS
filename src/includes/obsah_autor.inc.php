@@ -70,13 +70,13 @@
 
             if ($result->num_rows >0){
                 echo "<table class=tabulka > <tr> 
-                                        <td> Název              </td>
-                                        <td> Téma               </td>
-                                        <td> Datum vložení      </td>
-                                        <td> Stav               </td>
-                                        <td> Spoluautoři        </td> 
-                                        <td> Recenzent1         </td> 
-                                        <td> Recenzent2         </td> 
+                                        <th> Název              </th>
+                                        <th> Téma               </th>
+                                        <th> Datum vložení      </th>
+                                        <th> Stav               </th>
+                                        <th> Spoluautoři        </th> 
+                                        <th> Recenzent1         </th> 
+                                        <th> Recenzent2         </th> 
                               </tr>";
                 while ($row = $result->fetch_assoc()){
 
