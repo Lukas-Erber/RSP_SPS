@@ -9,6 +9,7 @@
   </head>
   <body>
     <?php include 'includes/main-bar.inc.php'; ?>
+    <?php include 'includes/posudek-modal.inc.php'; ?>
 
     <section>
       <div class="container">
@@ -63,7 +64,7 @@
           require_once 'includes/dbconn.inc.php';
 
           $userId = $_SESSION["uzivatel_id"];
-          $sql = "SELECT clanek.id, clanek.nazev, uzivatel.jmeno, uzivatel.prijmeni, clanek.datum, stav.nazev as stav_nazev, posudek.text, posudek.id as posudek_id
+          $sql = "SELECT clanek.id, clanek.nazev, uzivatel.jmeno, uzivatel.prijmeni, clanek.datum, clanek.soubor, stav.nazev as stav_nazev, posudek.id as posudek_id, posudek.aktualnost as r1_hod1, posudek.zajimavost as r1_hod2, posudek.prinosnost as r1_hod3, posudek.originalita as r1_hod4, posudek.odborna_uroven as r1_hod5, posudek.jazykova_uroven as r1_hod6, posudek.text as r1_text
                   FROM clanek 
                   INNER JOIN uzivatel ON clanek.id_autor = uzivatel.id 
                   INNER JOIN stav ON clanek.id_stav = stav.id
@@ -90,22 +91,34 @@
             ?>
             
             <tr>
-              <td><?php echo $row["nazev"]; ?></td>
+              <td><a href="./pdf/<?php echo $row['soubor'] ?>"><?php echo $row["nazev"]; ?></a></td>
               <td><?php echo $row["jmeno"]." ".$row["prijmeni"]; ?></td>
               <td><?php echo $row["datum"]; ?></td>
               <td><?php echo $row["stav_nazev"]; ?></td>
-              <td><?php echo $row["text"]; ?></td>
+              <td>
+                                    <a class="rec" data-toggle="modal" data-target="#recenzeModal" 
+                                            data-hod1="<?php echo $row['r1_hod1'] ?>" 
+                                            data-hod2="<?php echo $row['r1_hod2'] ?>" 
+                                            data-hod3="<?php echo $row['r1_hod3'] ?>"
+                                            data-hod4="<?php echo $row['r1_hod4'] ?>"
+                                            data-hod5="<?php echo $row['r1_hod5'] ?>"
+                                            data-hod6="<?php echo $row['r1_hod6'] ?>"
+                                            data-text="<?php echo $row['r1_text'] ?>"
+                                    >
+
+                                    Zobrazit posudek</a>
+                                </td>
               <td>
                 <?php 
-                  if(empty($row["text"])) {
+                  if(empty($row["r1_text"])) {
                 ?>
-                  <a href="#myModal" class="aaa" role="button" data-toggle="modal" data-id="<?php echo $row['id']; ?>">
+                  <a href="#myModal" class="aaa" role="button" data-toggle="modal" data-id="<?php echo $row['id'] ?>">
                     <i class="fa-solid fa-circle-plus"></i>
                   </a>
                 <?php 
                   } else {
                 ?>
-                    <a href="posudek_odstranit.php?posudekId=<?php echo $row['posudek_id']; ?>">Odstranit posudek</a>;
+                    <a href="posudek_odstranit.php?posudekId=<?php echo $row['posudek_id'] ?>">Odstranit posudek</a>;
                 <?php
                   }
                 ?>
@@ -117,7 +130,7 @@
                     echo "Musíte vytvořit posudek!";
                   } else {
                 ?>
-                <a href="clanek_recenzent_odeslat.php?clanekId=<?php echo $row['id']; ?>">Odeslat redaktorovi</a>
+                <a href="clanek_recenzent_odeslat.php?clanekId=<?php echo $row['id'] ?>">Odeslat redaktorovi</a>
                 <?php } ?>
               </td>
             </tr>
@@ -134,9 +147,27 @@
     <?php include 'includes/footer.inc.php'; ?>
 
     <script type="text/javascript">
-                $(document).ready(function(){
+          $(document).ready(function(){
             $(".aaa").click(function(){
                 $("#clanek-id").val($(this).data("id"));
+            });
+
+            $('.rec').click(function() {     
+                var text = $(this).data('text');  
+                var hod1 = $(this).data('hod1'); 
+                var hod2 = $(this).data('hod2');
+                var hod3 = $(this).data('hod3');
+                var hod4 = $(this).data('hod4');
+                var hod5 = $(this).data('hod5');
+                var hod6 = $(this).data('hod6');
+
+                $('#text').val(text);  
+                $('#hod1').val(hod1);  
+                $('#hod2').val(hod2);
+                $('#hod3').val(hod3);
+                $('#hod4').val(hod4);
+                $('#hod5').val(hod5);
+                $('#hod6').val(hod6);
             });
         });
     </script>
