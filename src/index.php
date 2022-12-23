@@ -11,6 +11,16 @@
   <body>
     <?php include 'includes/main-bar.inc.php'; ?>
 
+    <?php 
+      require_once 'includes/dbconn.inc.php';
+
+      // Přehled článků
+      $sql_clanky = "SELECT clanek.id, clanek.nazev as clanek_nazev, clanek.tema, clanek.datum, clanek.soubor, autor.jmeno, autor.prijmeni
+                     FROM clanek
+                     INNER JOIN uzivatel AS autor ON autor.id = clanek.id_autor;"; 
+      $result_clanky = mysqli_query($conn, $sql_clanky);
+    ?>
+
     <section>
       <div class="container">
         <h1>Samurai Programming Solution Magazine</h1>
@@ -26,13 +36,32 @@
 
     <section>
       <div class="container">
-        <h2>Info</h2>
-      </div>
-    </section>
+        <div class="autor-obsah">
+            <h3>Zveřejněné články</h3>
+            <table>
+                <tr>
+                    <th>Název</th>
+                    <th>Autor</th>
+                    <th>Téma</th>
+                    <th>Datum</th>
+                </tr>
+            <?php
+                if (mysqli_num_rows($result_clanky) > 0) {
+                    while ($row = mysqli_fetch_array($result_clanky)) {
+            ?>
+                        <tr>
+                            <td><a href="./pdf/<?php echo $row['soubor'] ?>"><?php echo $row["clanek_nazev"]; ?></a></td>
+                            <td><?php echo $row["jmeno"]." ".$row["prijmeni"]; ?></td>
+                            <td><?php echo $row["tema"]; ?></td>
+                            <td><?php echo $row["datum"]; ?></td>
+                        </tr>
 
-    <section>
-      <div class="container">
-        <h2>Archiv</h2>
+            <?php
+                    }
+                }
+            ?>
+            </table>
+        </div>
       </div>
     </section>
 
